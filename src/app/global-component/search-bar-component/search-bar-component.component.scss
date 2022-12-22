@@ -1,0 +1,36 @@
+$primary-color: #2564cf;
+$seconday-color: #fff;
+
+.container .top-nav-container {
+  .center-top-nav-container {
+    .search-bar {
+      width: 69%;
+      text-align: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .search {
+        background-color: $seconday-color;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        width: 24.5rem;
+
+        i {
+          color: $primary-color;
+          width: 5%;
+          transform: rotate(90deg);
+        }
+      }
+
+      #search {
+        border: none;
+        width: 92%;
+        outline: none;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}

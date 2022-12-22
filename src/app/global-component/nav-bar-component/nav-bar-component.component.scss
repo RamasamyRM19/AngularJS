@@ -1,0 +1,61 @@
+@import '../search-bar-component/search-bar-component.component.scss';
+
+/*---------------------------- TOP NAV CONTAINER -------------------------------*/
+$primary-color: #2564cf;
+$seconday-color: #fff;
+
+.container .top-nav-container {
+  background-color: $primary-color;
+  color: $seconday-color;
+  height: 48px;
+  width: 100%;
+
+  div {
+    display: inline-block;
+    margin-top: 3px;
+  }
+
+  .dots-icon {
+    width: 4%;
+    text-align: center;
+    word-spacing: -3px;
+    font-size: 18px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .login {
+    width: 4%;
+    text-align: center;
+  }
+
+  .center-top-nav-container {
+    width: 91%;
+
+    div {
+      display: inline-block;
+    }
+
+    .to-do {
+      width: 12%;
+      text-align: left;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    .icon-right {
+      width: 18%;
+      text-align: right;
+
+      i {
+        width: 19%;
+      }
+    }
+  }
+}

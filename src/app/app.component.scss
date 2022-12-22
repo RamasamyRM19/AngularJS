@@ -1,0 +1,18 @@
+@import "./global-component/nav-bar-component/nav-bar-component.component.scss";
+@import "./global-component/bottom-left-bar-component/bottom-left-bar-component.component.scss";
+@import "./global-component/bottom-center-bar-component/bottom-center-bar-component.component.scss";
+@import "./global-component/bottom-right-bar-component/bottom-right-bar-component.component.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
+}
+
+i:hover,
+button:hover {
+  cursor: pointer;
+}

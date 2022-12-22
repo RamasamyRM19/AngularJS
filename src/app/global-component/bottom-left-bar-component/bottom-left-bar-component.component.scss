@@ -1,0 +1,158 @@
+$primary-color: #2564cf;
+$seconday-color: #fff;
+
+$primary-color1 : #f3f0ef;
+$seconday-color1 : #EBF7FC;
+$tertiary-color : #e7e6e5;
+$quaternary-color: #ecf6fd;
+
+$primary-color2 : #faf9f8;
+$seconday-color2 : #000;
+
+/*---------------------------- BOTTOM CONTAINER -------------------------------*/
+.container .bottom-nav-container {
+  width: 100%;
+
+  div {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .hide-left-container {
+    display: none;
+  }
+}
+
+/*---------------------------- LEFT CONTAINER -------------------------------*/
+
+.container .bottom-nav-container .left-container {
+  background-color: $seconday-color;
+  height: 35rem;
+  width: 21%;
+  font-size: 14px;
+
+  .left {
+    line-height: 4rem;
+
+    .bar {
+      padding-left: 18px;
+      height: 67px;
+
+      i {
+        margin-top: 2rem;
+      }
+
+      button {
+        border: none;
+        background-color: $seconday-color;
+      }
+    }
+
+    .content {
+      overflow-y: auto;
+
+      .top li {
+        &:hover {
+          background-color: $primary-color1;
+        }
+      }
+
+      .top li.selected {
+        border-left: 2px;
+        border-left-style: solid;
+        border-color: $primary-color;
+        background-color: $seconday-color1;
+        font-weight: 600;
+      }
+
+      .line {
+        margin: 9px 16px;
+        height: 1px;
+        background-color: $tertiary-color;
+        list-style-type: none;
+      }
+
+      .top-side-bar {
+        background-color: $quaternary-color;
+        border-left: "2px solid";
+        border-left-color: $primary-color;
+        font-weight: "600";
+        padding-left: "26px";
+      }
+    }
+
+    .new {
+      width: 100%;
+      color: $primary-color;
+
+      i {
+        color: $primary-color;
+      }
+
+      div {
+        display: inline-block;
+      }
+
+      .new-list {
+        width: 50%;
+        padding-left: 25px;
+
+        #add {
+          width: 74%;
+          border: none;
+          outline: none;
+        }
+      }
+
+      .square {
+        text-align: right;
+        width: 28%;
+      }
+    }
+  }
+
+  ul {
+    line-height: 3.1;
+    width: 17.5rem;
+    max-height: 25rem;
+
+    li {
+      list-style-type: none;
+      padding-left: 1.7rem;
+      cursor: pointer;
+
+      div:hover {
+        background-color: $primary-color2;
+      }
+    }
+  }
+
+  i {
+    color: $seconday-color2;
+    width: 2.1rem;
+  }
+
+  .left-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 15px 15px 15px 10px;
+    text-align: center;
+
+    i {
+      width: 3rem;
+
+      &:hover {
+        background-color: $primary-color2;
+      }
+    }
+
+    .check i {
+      color: $primary-color;
+    }
+  }
+}
+
+.container .bottom-nav-container .left-container.hide-block {
+  display: none;
+}

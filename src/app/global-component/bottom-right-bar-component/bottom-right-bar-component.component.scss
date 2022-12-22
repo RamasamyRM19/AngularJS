@@ -1,0 +1,126 @@
+/*---------------------------- RIGHT CONTAINER -------------------------------*/
+.container .bottom-nav-container .right-container {
+  display: none;
+  background-color: #f7f7f7;
+  width: 28.5%;
+  height: 36rem;
+  border-left: 0.5px solid #d0cbcb;
+  box-shadow: -4px 5px 20px -7px #cccccc;
+  vertical-align: top;
+
+  .middle-sections {
+    overflow-y: auto;
+    max-height: 27rem;
+    color: #6e6868;
+    font-size: 14px;
+
+    .conditions-section {
+      background-color: #fff;
+      width: 85%;
+      margin: 0 auto 10px 1.7rem;
+      border-radius: 4px;
+
+      .section {
+        margin: 0 auto 0px 0rem;
+        padding-right: 2.65rem;
+        border-bottom: 1px solid #f3f3f3;
+      }
+    }
+  }
+
+  .section {
+    line-height: 3.3;
+    background-color: white;
+    width: 85%;
+    margin: 0 auto 10px 1.7rem;
+    border-radius: 4px;
+
+    div {
+      display: inline-block;
+    }
+
+    .note-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      resize: none;
+      height: 7rem;
+      font-size: 16px;
+    }
+  }
+
+  .bottom-section {
+    background-color: #f7f7f7;
+    bottom: 0;
+    line-height: 3.5;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto 0px 1rem;
+
+    div {
+      display: inline-block;
+    }
+  }
+
+  .section.task-title:first-child {
+    margin-top: 10px;
+    margin-bottom: 0;
+    position: sticky;
+    top: 10px;
+    width: 18rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  ul.section {
+    li {
+      border-bottom: 0.5px solid #d0cbcb;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .section-icon {
+    width: 15%;
+    text-align: center;
+  }
+
+  .section-name {
+    width: 83%;
+  }
+
+  .section:hover,
+  .conditions-section div:hover {
+    background-color: #dedede;
+    cursor: pointer;
+  }
+
+  .line {
+    margin: 9px 16px;
+    height: 1px;
+    background-color: #e7e6e5;
+    list-style-type: none;
+  }
+
+  .section:last-child {
+    height: 7rem;
+  }
+}
+
+.container .bottom-nav-container .right-container.show-block {
+  display: inline-block;
+  width: 26%;
+}
+
+.task-title i {
+  color: #2564cf;
+}
+
+.container .bottom-nav-container .right-container .section.section.task-title .section-name,
+.container .bottom-nav-container .right-container .bottom-section .section-name {
+  width: 66%;
+}

@@ -1,0 +1,269 @@
+/*---------------------------- CENTER CONTAINER -------------------------------*/
+.container .bottom-nav-container .center-container {
+  background-color: #faf9f8;
+  height: 35.5rem;
+  width: 78.5%;
+  border-left: 1px solid #e7e6e5;
+  padding-top: 5px;
+
+  .content-one {
+    margin: 20px 20px 20px 33px;
+    width: 95%;
+    line-height: 1.7;
+
+    .top-content {
+      width: 100%;
+
+      li {
+        list-style-type: none;
+      }
+
+      .top-content-left {
+        width: 69%;
+        font-size: 20px;
+        font-weight: 600;
+
+        i {
+          width: 1.8rem;
+        }
+
+        .myDay .fa.fa-bars {
+          display: none;
+        }
+
+        ul li {
+          display: inline-block;
+          list-style-type: none;
+          width: 10rem;
+        }
+      }
+
+      .top-content-right {
+        text-align: right;
+        width: 29%;
+        font-size: 14px;
+        color: #858383;
+        font-weight: 100;
+        padding-top: 5px;
+
+        .sort,
+        .suggestion {
+          width: 40%;
+          cursor: pointer;
+        }
+
+        i {
+          font-size: 16px;
+          text-align: center;
+          width: 23%;
+          color: grey;
+        }
+
+        .sort i {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+
+  .center {
+
+    width: 96%;
+    margin: 0px 20px 0px 20px;
+
+    .content-two,
+    .content-three {
+      border: 1px solid #e7e6e5;
+      border-radius: 6px;
+      width: 100%;
+      box-shadow: 0 4px 6px -6px #a5a5a5;
+      background-color: white;
+      margin-top: 11px;
+    }
+
+    .content-two {
+
+      .middle-content,
+      .middle-content-one {
+        width: 98%;
+      }
+
+      .middle-content {
+        background-color: white;
+        padding: 15px 3.5px 15px 25px;
+        border-bottom: 1px solid #e7e6e5;
+        width: 97.2%;
+
+        .addTask {
+          width: 96%;
+        }
+
+        .addTask #addCategory {
+          border: none;
+          outline: none;
+          width: 100%;
+        }
+      }
+
+      .middle-content-one {
+        padding: 5px 0px 5px 25px;
+
+        .new-one {
+          width: 93.5%;
+          padding-top: 5px;
+
+          div {
+            width: 4.5%;
+          }
+        }
+
+        .new-two {
+          width: 4%;
+
+          button {
+            padding: 7px;
+            background-color: white;
+            border: 1px solid #e7e6e5;
+            color: #a19d9c;
+          }
+        }
+      }
+
+    }
+
+    .content-three .middle-content1 {
+      background-color: white;
+      padding: 10px 3.5px 6px 25px;
+      border-bottom: 1px solid #e7e6e5;
+      width: 97.2%;
+
+      .task {
+        width: 93%;
+
+        .new {
+          font-size: 14px;
+        }
+      }
+
+      .circle,
+      .star {
+        padding-top: 6px;
+      }
+
+    }
+
+    .content-two .middle-content .circle,
+    .middle-content1 .circle {
+      width: 3%;
+    }
+
+    .content-two .middle-content .circle i,
+    .content-three .middle-content1 .circle i,
+    .content-two .middle-content .addTask ::placeholder,
+    .content-three .middle-content1 .star i {
+      color: #2564cf;
+    }
+
+    .completed-title-container {
+      display: block;
+      line-height: 2;
+      border-bottom: 0.1px solid #dedede;
+      margin-left: 0.5rem;
+
+      i {
+        text-align: center;
+        width: 20px;
+        pointer-events: none;
+      }
+
+      .completed-title {
+        display: inline-block;
+        margin: 0 10px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+    }
+
+    .completed-title-container.hide-block {
+      display: none;
+    }
+
+    .completed.items {
+      display: block;
+    }
+
+    .completed.items.hide-block {
+      display: none;
+    }
+
+  }
+
+  .content-one .period,
+  .center .content-three .middle-content1 .task .period {
+    font-size: 12px;
+    color: #858383;
+    font-weight: 100;
+    width: 100%;
+  }
+}
+
+
+// .container .bottom-nav-container .center-container .center .content-two .middle-content,
+// .container .bottom-nav-container .center-container .center .content-two .container .bottom-nav-container .center-container .content-one .top-content div,
+// .container .bottom-nav-container .center-container .center .content-two .middle-content div,
+// .container .bottom-nav-container .center-container .center .content-two .middle-content-one div,
+// .container .bottom-nav-container .center-container .center .content-two .middle-content-two div {
+//   display: inline-block;
+// }
+
+
+.container .bottom-nav-container .full-screen-view {
+  width: 99.9vw;
+}
+
+.container .bottom-nav-container .center-container1 {
+  width: 52%;
+
+  .content-one .top-content .top-content-right {
+
+    .sort,
+    .suggestion {
+      width: 49%;
+    }
+  }
+
+  .center {
+    .content-two {
+      .middle-content {
+        width: 95.7%;
+
+        .circle {
+          width: 4%;
+        }
+      }
+
+      .middle-content-one .new-one {
+        width: 89.5%;
+      }
+    }
+
+    .content-three .middle-content1 {
+      width: 95.2%;
+      .circle {
+        width: 5%;
+      }
+
+      .task {
+        width: 92%;
+      }
+    }
+  }
+
+  .center .content-three .middle-content1 .center .content-two .middle-content .center .content-two .middle-content .addTask {
+    width: 93%;
+  }
+}
+
+.striked-task {
+  text-decoration: line-through;
+}
