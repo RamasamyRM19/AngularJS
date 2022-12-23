@@ -1,21 +1,33 @@
 /*---------------------------- RIGHT CONTAINER -------------------------------*/
+$primary-color: #f7f7f7;
+$seconday-color: #d0cbcb;
+$tertiary-color: #cccccc;
+$quaternary-color: #6e6868;
+
+$primary-color1: #fff;
+$seconday-color1: #f3f3f3;
+$tertiary-color1: #dedede;
+$quaternary-color1: #e7e6e5;
+
+$primary-color2: #2564cf;
+
 .container .bottom-nav-container .right-container {
   display: none;
-  background-color: #f7f7f7;
+  background-color: $primary-color;
   width: 28.5%;
   height: 36rem;
-  border-left: 0.5px solid #d0cbcb;
-  box-shadow: -4px 5px 20px -7px #cccccc;
+  border-left: 0.5px solid $seconday-color;
+  box-shadow: -4px 5px 20px -7px $tertiary-color;
   vertical-align: top;
 
   .middle-sections {
     overflow-y: auto;
     max-height: 27rem;
-    color: #6e6868;
+    color: $quaternary-color;
     font-size: 14px;
 
     .conditions-section {
-      background-color: #fff;
+      background-color: $primary-color1;
       width: 85%;
       margin: 0 auto 10px 1.7rem;
       border-radius: 4px;
@@ -23,14 +35,14 @@
       .section {
         margin: 0 auto 0px 0rem;
         padding-right: 2.65rem;
-        border-bottom: 1px solid #f3f3f3;
+        border-bottom: 1px solid $seconday-color1;
       }
     }
   }
 
   .section {
     line-height: 3.3;
-    background-color: white;
+    background-color: $primary-color1;
     width: 85%;
     margin: 0 auto 10px 1.7rem;
     border-radius: 4px;
@@ -47,10 +59,14 @@
       height: 7rem;
       font-size: 16px;
     }
+
+    &:last-child {
+      height: 7rem;
+    }
   }
 
   .bottom-section {
-    background-color: #f7f7f7;
+    background-color: $primary-color;
     bottom: 0;
     line-height: 3.5;
     text-align: center;
@@ -76,7 +92,7 @@
 
   ul.section {
     li {
-      border-bottom: 0.5px solid #d0cbcb;
+      border-bottom: 0.5px solid $seconday-color;
     }
 
     li:last-child {
@@ -93,22 +109,27 @@
     width: 83%;
   }
 
-  .section:hover,
-  .conditions-section div:hover {
-    background-color: #dedede;
-    cursor: pointer;
+  .section,
+  .conditions-section div {
+
+    &:hover {
+      background-color: $tertiary-color1;
+      cursor: pointer;
+    }
   }
 
   .line {
     margin: 9px 16px;
     height: 1px;
-    background-color: #e7e6e5;
+    background-color: $quaternary-color1;
     list-style-type: none;
   }
 
-  .section:last-child {
-    height: 7rem;
+  .section.section.task-title .section-name,
+  .bottom-section .section-name {
+    width: 66%;
   }
+
 }
 
 .container .bottom-nav-container .right-container.show-block {
@@ -117,10 +138,5 @@
 }
 
 .task-title i {
-  color: #2564cf;
-}
-
-.container .bottom-nav-container .right-container .section.section.task-title .section-name,
-.container .bottom-nav-container .right-container .bottom-section .section-name {
-  width: 66%;
+  color: $primary-color2;
 }

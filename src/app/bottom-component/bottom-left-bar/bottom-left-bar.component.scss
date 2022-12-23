@@ -1,13 +1,4 @@
-$primary-color: #2564cf;
-$seconday-color: #fff;
-
-$primary-color1 : #f3f0ef;
-$seconday-color1 : #EBF7FC;
-$tertiary-color : #e7e6e5;
-$quaternary-color: #ecf6fd;
-
-$primary-color2 : #faf9f8;
-$seconday-color2 : #000;
+@import '../../color.scss';
 
 /*---------------------------- BOTTOM CONTAINER -------------------------------*/
 .container .bottom-nav-container {
@@ -30,6 +21,7 @@ $seconday-color2 : #000;
   height: 35rem;
   width: 21%;
   font-size: 14px;
+  border-right: 1px solid #e7e6e5;
 
   .left {
     line-height: 4rem;
@@ -140,7 +132,7 @@ $seconday-color2 : #000;
     text-align: center;
 
     i {
-      width: 3rem;
+      width: 3.5rem;
 
       &:hover {
         background-color: $primary-color2;
