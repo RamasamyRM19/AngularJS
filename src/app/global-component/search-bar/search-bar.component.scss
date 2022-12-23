@@ -1,10 +1,11 @@
-$primary-color: #2564cf;
-$seconday-color: #fff;
+@import '../../color.scss';
+
+/*---------------------------- TOP SEARCH BAR -------------------------------*/
 
 .container .top-nav-container {
   .center-top-nav-container {
     .search-bar {
-      width: 69%;
+      width: 70%;
       text-align: center;
 
       &:hover {

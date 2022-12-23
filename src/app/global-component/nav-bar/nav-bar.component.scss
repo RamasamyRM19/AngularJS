@@ -1,8 +1,7 @@
-@import '../search-bar-component/search-bar-component.component.scss';
+@import '../search-bar/search-bar.component.scss';
+@import '../../color.scss';
 
 /*---------------------------- TOP NAV CONTAINER -------------------------------*/
-$primary-color: #2564cf;
-$seconday-color: #fff;
 
 .container .top-nav-container {
   background-color: $primary-color;
@@ -27,7 +26,7 @@ $seconday-color: #fff;
   }
 
   .login {
-    width: 4%;
+    width: 5%;
     text-align: center;
   }
 
