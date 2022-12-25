@@ -41,5 +41,4 @@ export class BottomLeftBarComponent {
       event.target.value = "";
     }
   }
-  
 }
