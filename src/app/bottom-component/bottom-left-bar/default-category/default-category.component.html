@@ -1,6 +1,19 @@
 <ul class="default top" id="top">
-  <li *ngFor="let item of menus">
-    <i class={{item.icon}}></i>
-    {{item.name}}
-  </li>
+  <div class="menus" *ngFor="let item of menus">
+    <li>
+      <i class={{item.icon}}></i>
+      {{item.name}}
+    </li>
+    <li *ngIf="item.isLastDefaultCategory" class="line"></li>
+  </div>
 </ul>
+
+<!-- <ul class="default top" id="top" *ngFor="let item of menus">
+  <li *ngIf="isLastDefaultCategory; else notLastDefaultCategory">
+    <i class={{item.icon}}></i>
+      {{item.name}}
+  </li>
+  <ng-template #notLastDefaultCategory>
+    <p class="line"></p>
+  </ng-template>
+</ul> -->

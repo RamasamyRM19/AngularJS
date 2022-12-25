@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./bottom.component.scss']
 })
 export class BottomComponent {
-
+  
 }
