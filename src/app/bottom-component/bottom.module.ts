@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 import { BottomComponent } from './bottom.component';
 
 import { BottomLeftBarComponent } from './bottom-left-bar/bottom-left-bar.component';
@@ -16,7 +17,8 @@ import { DefaultCategoryComponent } from './bottom-left-bar/default-category/def
     BottomRightBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     BottomComponent,
