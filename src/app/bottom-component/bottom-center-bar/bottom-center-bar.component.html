@@ -2,9 +2,9 @@
   <div class="top-content">
     <div class="top-content-left">
       <ul>
-        <i class="fa fa-sun-o" id="sun"></i>
-        <li class="myDay" id="myDay">My Day</li>
-        <li title="List options menu"><i class="fa fa-ellipsis-h"></i></li>
+        <i class={{categoryIcon}} id="sun"></i>
+        <li class="myDay" id="myDay" ngClass="category">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
+        <!-- <li title="List options menu"><i class="fa fa-ellipsis-h"></i></li> -->
       </ul>
     </div>
     <div class="top-content-right">
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="period">
-    <p id="period"></p>
+    <p id="period">{{currentDate | date:'EEEE, MMMM dd'}}</p>
   </div>
 </div>
 
@@ -29,7 +29,7 @@
         <i class="fa fa-circle-thin"></i>
       </div>
       <div class="addTask" id="addTask">
-        <input class="add-task-input" id="addCategory" type="text" placeholder="Add a Task">
+        <input class="add-task-input" id="addCategory" type="text" placeholder="Add a Task" (keypress)="addNewTask($event)">
       </div>
     </div>
     <div class="middle-content-one">
@@ -45,6 +45,8 @@
   </div>
 
   <div class="content-three" id="content-three">
+    <!-- [tasks]="TASKS" -->
+    <app-center-task [task]="TASKS"></app-center-task>
   </div>
 
   <div class="completed-title-container" id="completed-title-container">

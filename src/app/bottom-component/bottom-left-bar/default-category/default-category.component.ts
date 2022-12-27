@@ -10,4 +10,13 @@ export class DefaultCategoryComponent {
 
   @Input() menus?:Menu[];
 
+  public selectedCategory?:String;
+
+  @Output() onSelected = new EventEmitter<any>();
+
+  onSelectCategory(category:Menu) {
+    this.selectedCategory= category.icon + "/" + category.name;
+    this.onSelected.emit(this.selectedCategory);
+  }
+
 }
