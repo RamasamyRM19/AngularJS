@@ -11,21 +11,14 @@ import { MENUS } from './default-category/default-menu';
 export class BottomLeftBarComponent {
 
   public MENUS: Menu[] = [
-      { id: 1, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false },
-      { id: 2, name: 'Important', icon: 'fa fa-star-o', isLastDefaultCategory: false },
-      { id: 3, name: 'Planned', icon: 'fa fa-calendar-o', isLastDefaultCategory: false },
-      { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
-      { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
-    ];
+    { id: 1, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false },
+    { id: 2, name: 'Important', icon: 'fa fa-star-o', isLastDefaultCategory: false },
+    { id: 3, name: 'Planned', icon: 'fa fa-calendar-o', isLastDefaultCategory: false },
+    { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
+    { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
+  ];
 
   constructor() { }
-
-  // onSubmit(event: any) {
-  //   this.todoService.addTodo(this.todo);
-  //   console.log(this.todo);
-  //   this.todo = '';
-  //   console.log("Entered");
-  // }
 
   public category?: Menu;
 
@@ -46,7 +39,10 @@ export class BottomLeftBarComponent {
 
   onSelected(categoryName: string) {
     this.selectedCategory.emit(categoryName);
-    console.log(categoryName);
+  }
+
+  hideBar(event:any) {
+    console.log(event.srcElement);
   }
 }
 

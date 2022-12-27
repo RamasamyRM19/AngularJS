@@ -1,19 +1,9 @@
 <ul class="default top" id="top">
   <div class="menus" *ngFor="let item of menus">
-    <li (click)="onSelectCategory(item)">
+    <li (click)="onSelectCategory(item)" [class.selected]="item === selectedCategoryItem" >
       <i class={{item.icon}}></i>
       {{item.name}}
     </li>
     <li *ngIf="item.isLastDefaultCategory" class="line"></li>
   </div>
 </ul>
-
-<!-- <ul class="default top" id="top" *ngFor="let item of menus">
-  <li *ngIf="isLastDefaultCategory; else notLastDefaultCategory">
-    <i class={{item.icon}}></i>
-      {{item.name}}
-  </li>
-  <ng-template #notLastDefaultCategory>
-    <p class="line"></p>
-  </ng-template>
-</ul> -->
