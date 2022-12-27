@@ -48,6 +48,5 @@ export class BottomLeftBarComponent {
     this.selectedCategory.emit(categoryName);
     console.log(categoryName);
   }
-
 }
 
