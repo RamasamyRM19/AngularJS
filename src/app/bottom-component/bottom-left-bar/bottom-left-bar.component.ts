@@ -44,6 +44,5 @@ export class BottomLeftBarComponent {
   hideBar(event:any) {
     console.log(event.srcElement);
   }
-
 }
 
