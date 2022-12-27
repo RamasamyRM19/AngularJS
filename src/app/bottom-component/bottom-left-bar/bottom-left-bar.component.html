@@ -3,7 +3,7 @@
     <button id="bar"><i class="fa fa-bars"></i></button>
   </div>
   <div class="default content">
-    <app-default-category [menus]="MENUS"></app-default-category>
+    <app-default-category [menus]="MENUS" (onSelected)="onSelected($event)"></app-default-category>
   </div>
   <div class="new">
     <!-- <form #addTodo="ngForm" (submit)="onSubmit()"> -->

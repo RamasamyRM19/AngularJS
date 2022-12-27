@@ -18,7 +18,7 @@ export class BottomLeftBarComponent {
       { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
     ];
 
-  constructor() {}
+  constructor() { }
 
   // onSubmit(event: any) {
   //   this.todoService.addTodo(this.todo);
@@ -41,5 +41,13 @@ export class BottomLeftBarComponent {
       event.target.value = "";
     }
   }
-  
+
+  @Output() selectedCategory = new EventEmitter<string>();
+
+  onSelected(categoryName: string) {
+    this.selectedCategory.emit(categoryName);
+    console.log(categoryName);
+  }
+
 }
+

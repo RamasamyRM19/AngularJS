@@ -17,6 +17,10 @@ $primary-color2: #dedede;
   width: 78.8%;
   padding-top: 5px;
 
+  i {
+    color: rgb(85, 83, 83);
+  }
+
   .content-one {
     margin: 20px 20px 20px 33px;
     width: 95%;
@@ -38,14 +42,20 @@ $primary-color2: #dedede;
           width: 1.8rem;
         }
 
-        .myDay .fa.fa-bars {
-          display: none;
+        .myDay {
+          .fa.fa-bars {
+            display: none;
+          }
+
+          i {
+            margin-left: 1rem;
+          }
         }
 
         ul li {
           display: inline-block;
           list-style-type: none;
-          width: 10rem;
+          width: 18rem;
         }
       }
 
