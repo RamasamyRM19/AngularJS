@@ -11,11 +11,20 @@ $quaternary-color1: #2564cf;
 
 $primary-color2: #dedede;
 
+.changeBlueColor {
+  color: $quaternary-color1;
+}
+
+.changeGreenColor {
+  color: rgb(19, 143, 19);
+}
+
 .container .bottom-nav-container .center-container {
   background-color: $primary-color;
-  height: 35.7rem;
+  min-height: 35.7rem;
   width: 78.8%;
   padding-top: 5px;
+  border-left: 1px solid #e7e6e5;
 
   i {
     color: rgb(85, 83, 83);
@@ -92,13 +101,19 @@ $primary-color2: #dedede;
     width: 96%;
     margin: 0px 20px 0px 20px;
 
-    .content-two,
-    .content-three {
-      border: 1px solid $seconday-color;
+    .content-two {
+      border-right: 1px solid #ededed;
+      border-left: 1px solid #ededed;
       border-radius: 6px;
       width: 100%;
       box-shadow: 0 4px 6px -6px $primary-color1;
-      background-color: $seconday-color1;
+      margin-top: 11px;
+    }
+
+    .content-three {
+      border-radius: 6px;
+      width: 100%;
+      box-shadow: 0 4px 6px -6px $primary-color1;
       margin-top: 11px;
     }
 
@@ -157,6 +172,9 @@ $primary-color2: #dedede;
       padding: 10px 3.5px 6px 25px;
       border-bottom: 1px solid $seconday-color;
       width: 97.2%;
+      margin-top: 0.5rem;
+      border-radius: 7px;
+      box-shadow: 0 4px 6px -6px #a5a5a5;
 
       .task {
         width: 93%;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-bottom',
@@ -9,7 +9,6 @@ export class BottomComponent {
   public categoryName?:string;
 
   public categoryIcon?:string;
-
 
   constructor() {}
 

@@ -1,10 +1,9 @@
 <div class="content-one">
   <div class="top-content">
     <div class="top-content-left">
-      <ul>
+      <ul [ngClass]="categoryName === 'Assigned to me' ? 'changeGreenColor' : 'changeBlueColor'">
         <i class={{categoryIcon}} id="sun"></i>
-        <li class="myDay" id="myDay" ngClass="category">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
-        <!-- <li title="List options menu"><i class="fa fa-ellipsis-h"></i></li> -->
+        <li class="myDay" id="myDay">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
       </ul>
     </div>
     <div class="top-content-right">
@@ -46,7 +45,7 @@
 
   <div class="content-three" id="content-three">
     <!-- [tasks]="TASKS" -->
-    <app-center-task [task]="TASKS"></app-center-task>
+    <app-center-task [taskList]="TASKS"></app-center-task>
   </div>
 
   <div class="completed-title-container" id="completed-title-container">
@@ -55,6 +54,7 @@
   </div>
 
   <ul class="completed items" id="completed-items">
+    <app-center-task [task]="TASKS"></app-center-task>
   </ul>
 
 </div>

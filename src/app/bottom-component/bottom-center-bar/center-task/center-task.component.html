@@ -1,12 +1,12 @@
-<div class="middle-content1" *ngFor="let item of task">
+<div class="middle-content1" *ngFor="let item of taskList">
   <div class="circle">
-    <i class={{item.circleIcon}}></i>
+    <i class={{item.circleIcon}} (mouseover)="item.circleIcon = 'fa fa-check-circle-o'" (mouseout)="item.circleIcon = 'fa fa-circle-thin'" (click)="completedTask(item)"></i>
   </div>
   <div class="task">
     <p class="new">{{item.name}}</p>
     <p class="period">{{item.subName}}</p>
   </div>
   <div class="star">
-    <i class={{item.starIcon}}></i>
+    <i class={{item.starIcon}} (click)="clickToImportant($event)"></i>
   </div>
 </div>

@@ -21,7 +21,15 @@
   height: 35rem;
   width: 21%;
   font-size: 14px;
-  border-right: 1px solid #e7e6e5;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e7e6e5; 
+    border-radius: 10px;
+  }
 
   .left {
     line-height: 4rem;
@@ -46,6 +54,7 @@
       .top li {
         &:hover {
           background-color: $primary-color1;
+          width: 15.707rem;
         }
       }
 
@@ -128,7 +137,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 15px 15px 15px 10px;
+    padding: 15px 15px 15px 0px;
     text-align: center;
 
     i {

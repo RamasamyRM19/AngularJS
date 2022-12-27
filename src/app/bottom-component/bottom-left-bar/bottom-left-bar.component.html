@@ -1,6 +1,6 @@
 <div class="left">
   <div class="bar">
-    <button id="bar"><i class="fa fa-bars"></i></button>
+    <button id="bar" (click)="hideBar($event)"><i class="fa fa-bars"></i></button>
   </div>
   <div class="default content">
     <app-default-category [menus]="MENUS" (onSelected)="onSelected($event)"></app-default-category>

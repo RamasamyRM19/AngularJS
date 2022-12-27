@@ -10,13 +10,23 @@ export class DefaultCategoryComponent {
 
   @Input() menus?:Menu[];
 
-  public selectedCategory?:String;
+  @Input() selectedCategory?:string;
+
+  //public selectedCategory?:String;
+  public selectedCategoryItem?: Menu;
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.selectedCategory = "My Day";
+  }
 
   @Output() onSelected = new EventEmitter<any>();
 
   onSelectCategory(category:Menu) {
-    this.selectedCategory= category.icon + "/" + category.name;
+    this.selectedCategory = category.icon + "/" + category.name;
     this.onSelected.emit(this.selectedCategory);
+    this.selectedCategoryItem = category;
   }
 
 }

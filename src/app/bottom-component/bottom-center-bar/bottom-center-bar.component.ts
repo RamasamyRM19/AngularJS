@@ -12,7 +12,7 @@ export class BottomCenterBarComponent {
 
   @Input() categoryIcon?: String;
   @Input() categoryName?:String;
-  @Input() toggleButton?:String;
+  //@Input() taskList?:string;
 
   ngOnInit(): void {
     this.categoryIcon = "fa fa-sun-o";
@@ -38,6 +38,10 @@ export class BottomCenterBarComponent {
       this.TASKS.unshift(this.task);
       event.target.value = "";
     }
+  }
+
+  onImportant(categoryName: string) {
+    //this.taskList.emit(categoryName);
   }
 
 }
