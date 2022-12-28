@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Menu } from './menu';
-import { MENUS } from './default-category/default-menu';
 
 @Component({
   selector: 'app-bottom-left-bar',
@@ -20,7 +19,10 @@ export class BottomLeftBarComponent {
 
   constructor() { }
 
+  public selectedCategoryName?:string;
+
   public category?: Menu;
+  public categoryItem?: string;
 
   addNewCategoryMenu(event: any) {
     if (event.key == "Enter") {
@@ -31,6 +33,9 @@ export class BottomLeftBarComponent {
         isLastDefaultCategory: false
       }
       this.MENUS.push(this.category);
+      this.selectedCategoryName = event.target.value;
+      this.categoryItem = this.category.icon + "/" + this.category.name;
+      this.onSelected(this.categoryItem);
       event.target.value = "";
     }
   }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Tasks } from './task';
 
 @Component({
@@ -11,15 +11,16 @@ export class BottomCenterBarComponent {
   currentDate = new Date();
 
   @Input() categoryIcon?: String;
-  @Input() categoryName?:String;
+  @Input() categoryName?: String;
   //@Input() taskList?:string;
+  public categorySelect?: String;
 
   ngOnInit(): void {
     this.categoryIcon = "fa fa-sun-o";
-    this.categoryName= "My Day";
+    this.categoryName = "My Day";
   }
 
-  constructor(){
+  constructor() {
   }
 
   public TASKS: Tasks[] = [];
@@ -28,12 +29,16 @@ export class BottomCenterBarComponent {
 
   addNewTask(event: any) {
     if (event.key == "Enter") {
+      let categories = [this.categoryName];
+      if (this.categoryName !== "Tasks") {
+        categories.push("Tasks");
+      }
       this.task = {
         id: this.TASKS.length,
         name: event.target.value,
         subName: "Tasks",
-        circleIcon: "fa fa-circle-o",
-        starIcon: "fa fa-star-o"
+        isImportant: false,
+        isCompleted: false
       }
       this.TASKS.unshift(this.task);
       event.target.value = "";

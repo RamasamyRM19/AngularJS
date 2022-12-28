@@ -71,6 +71,7 @@
         height: 1px;
         background-color: $tertiary-color;
         list-style-type: none;
+        pointer-events: none;
       }
 
       .top-side-bar {

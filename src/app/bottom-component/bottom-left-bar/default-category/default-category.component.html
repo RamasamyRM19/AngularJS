@@ -1,6 +1,6 @@
 <ul class="default top" id="top">
   <div class="menus" *ngFor="let item of menus">
-    <li (click)="onSelectCategory(item)" [class.selected]="item === selectedCategoryItem" >
+    <li (click)="onSelectCategory(item)" [ngClass]="{'selected':item.name === selectedCategoryName}" [class.selected]="item === selectedCategoryItem" >
       <i class={{item.icon}}></i>
       {{item.name}}
     </li>
