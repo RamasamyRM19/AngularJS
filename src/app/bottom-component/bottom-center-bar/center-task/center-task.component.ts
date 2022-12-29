@@ -39,7 +39,6 @@ export class CenterTaskComponent {
   }
 
   @Output() onImportant = new EventEmitter<any>();
-
   addToImportant(task: Task) {
     task.isImportant = true;
     let categories = [this.categoryName];
@@ -70,6 +69,14 @@ export class CenterTaskComponent {
   }
 
   mouseOutFunction(event: any) {
+    event.target.className = "fa fa-circle-thin";
+  }
+
+  func1(event: any) {
+    event.target.className = "fa fa-check-circle-o";
+  }
+
+  func2(event: any) {
     event.target.className = "fa fa-circle-thin";
   }
 

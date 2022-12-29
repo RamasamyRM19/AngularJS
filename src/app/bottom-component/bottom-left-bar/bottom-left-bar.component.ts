@@ -76,6 +76,5 @@ export class BottomLeftBarComponent {
   renderCategoryTasks() {
     this.renderCategoryTask.emit();
   }
-
 }
 
