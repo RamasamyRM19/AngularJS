@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Tasks } from '../task';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-center-task',
@@ -7,17 +7,28 @@ import { Tasks } from '../task';
   styleUrls: ['./center-task.component.scss']
 })
 export class CenterTaskComponent {
-  @Input() taskList?: Tasks[];
-  @Input() task: Tasks[] = [];
-  public TASKS: Tasks[] = [];
+  @Input() taskList: Task[] =[];
+  @Input() task: Task[] = [];
+  public taskItem: Task[] = [];
   @Input() titleName = "";
   @Input() categoryName?: String;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.renderTask();
+  }
 
-  constructor() {}
+  public renderTask() {
+    this.taskItem = [];
+    this.task.forEach(task => {
+      if (task.name === this.titleName) {
+        this.taskItem.push(task);
+      }
+    });
+  }
 
-  clickToImportant(event: any, task: Tasks) {
+  constructor() { }
+
+  clickToImportant(event: any, task: Task) {
     if (event.target.className == "fa fa-star-o") {
       event.target.className = "fa fa-star";
       this.addToImportant(task);
@@ -29,45 +40,36 @@ export class CenterTaskComponent {
 
   @Output() onImportant = new EventEmitter<any>();
 
-  addToImportant(Tasks1: Tasks) {
-    console.log(Tasks1);
-    Tasks1.isImportant = true;
-    console.log(this.categoryName);
+  addToImportant(task: Task) {
+    task.isImportant = true;
     let categories = [this.categoryName];
     if (this.categoryName !== "Important") {
       categories.push("Important");
     }
-    console.log(categories);
-    console.log(Tasks1);
     // this.onImportant.emit(this.task);
   }
 
-  removeFromImportant(Tasks1: Tasks) {
-    console.log(Tasks1);
-    Tasks1.isImportant = false;
-    console.log(this.categoryName);
+  removeFromImportant(task: Task) {
+    task.isImportant = false;
     let categories = [this.categoryName];
     if (this.categoryName == "Important") {
       //categories.splice("Important");
     }
-    console.log(categories);
-    console.log(Tasks1);
   }
 
-  completedTask(task: Tasks) {
+  completedTask(task: Task) {
     console.log(task);
     task.isCompleted = true;
-    this.TASKS.unshift(task);
-    console.log(task.name);
+    this.taskItem.unshift(task);
+    console.log(this.taskItem);
     //task.unshift(task);
-    console.log(task);
   }
 
-  func1(event: any) {
+  mouseOverFunction(event: any) {
     event.target.className = "fa fa-check-circle-o";
   }
 
-  func2(event: any) {
+  mouseOutFunction(event: any) {
     event.target.className = "fa fa-circle-thin";
   }
 
