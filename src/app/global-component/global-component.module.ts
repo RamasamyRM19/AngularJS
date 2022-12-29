@@ -4,8 +4,6 @@ import { GlobalComponentComponent } from './global-component.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 
-
-
 @NgModule({
   declarations: [
     GlobalComponentComponent,

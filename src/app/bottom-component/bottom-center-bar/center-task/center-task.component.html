@@ -1,7 +1,7 @@
 <div class="middle-content1" *ngFor="let item of taskList">
   <div class="circle">
     <!-- <i class={{item.circleIcon}} (mouseover)="item.circleIcon = 'fa fa-check-circle-o'" (mouseout)="item.circleIcon = 'fa fa-circle-thin'" (click)="completedTask(item)"></i> -->
-    <i class="fa fa-circle-thin" (mouseover)="func1($event)" (mouseout)="func2($event)" (click)="completedTask(item)"></i>
+    <i class="fa fa-circle-thin" (mouseover)="mouseOverFunction($event)" (mouseout)="mouseOutFunction($event)" (click)="completedTask(item)"></i>
   </div>
   <div class="task">
     <p class="new">{{item.name}}</p>

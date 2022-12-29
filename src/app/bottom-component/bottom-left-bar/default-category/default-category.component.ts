@@ -8,11 +8,10 @@ import { Menu } from '../menu';
 })
 export class DefaultCategoryComponent {
 
-  @Input() menus?:Menu[];
+  @Input() menu?:Menu[];
 
   @Input() public selectedCategoryName?:string;
 
-  //public selectedCategory?:String;
   public selectedCategoryItem?: Menu;
 
   constructor() {}

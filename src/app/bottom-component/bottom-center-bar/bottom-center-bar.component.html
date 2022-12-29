@@ -1,8 +1,8 @@
 <div class="content-one">
   <div class="top-content">
     <div class="top-content-left">
-      <ul [ngClass]="categoryName === 'Assigned to me' ? 'changeGreenColor' : 'changeBlueColor'">
-        <i class={{categoryIcon}} id="sun"></i>
+      <ul [ngClass]="changeTitleColorBasedOnCategory()">
+        <i class={{categoryIcon}} id="sun" (click) = "showDefaultScreen()"></i>
         <li class="myDay" id="myDay">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
       </ul>
     </div>
@@ -28,7 +28,7 @@
         <i class="fa fa-circle-thin"></i>
       </div>
       <div class="addTask" id="addTask">
-        <input class="add-task-input" id="addCategory" type="text" placeholder="Add a Task" (keypress)="addNewTask($event)">
+        <input class="add-task-input" id="addCategory" type="text" placeholder="Add a Task" (keydown.enter)="addNewTask($event)">
       </div>
     </div>
     <div class="middle-content-one">
@@ -44,8 +44,7 @@
   </div>
 
   <div class="content-three" id="content-three">
-    <!-- [tasks]="TASKS" -->
-    <app-center-task [taskList]="TASKS" [categoryName]="categoryName"></app-center-task>
+    <app-center-task [taskList]="pendingTasks" [categoryName]="categoryName"></app-center-task>
   </div>
 
   <div class="completed-title-container" id="completed-title-container">
@@ -54,7 +53,7 @@
   </div>
 
   <ul class="completed items" id="completed-items">
-    <app-center-task [task]="TASKS"></app-center-task>
+    <app-center-task [task]="taskItem"></app-center-task>
   </ul>
 
 </div>
