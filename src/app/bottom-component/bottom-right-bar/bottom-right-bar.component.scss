@@ -12,9 +12,9 @@ $quaternary-color1: #e7e6e5;
 $primary-color2: #2564cf;
 
 .container .bottom-nav-container .right-container {
-  display: none;
+  display: inline-block;
   background-color: $primary-color;
-  width: 28.5%;
+  width: 25.5%;
   height: 36rem;
   border-left: 0.5px solid $seconday-color;
   box-shadow: -4px 5px 20px -7px $tertiary-color;

@@ -30,39 +30,21 @@ export class CenterTaskComponent {
 
   clickToImportant(event: any, task: Task) {
     if (event.target.className == "fa fa-star-o") {
-      event.target.className = "fa fa-star";
-      this.addToImportant(task);
-    } else if (event.target.className == "fa fa-star") {
-      event.target.className = "fa fa-star-o";
-      this.removeFromImportant(task);
+      task.isImportant = true;
+      task.category.push("Important");
+    } else {
+      task.isImportant = false;
+      let index = task.category.indexOf('Important');
+      task.category.splice(index, 1);
     }
   }
 
-  @Output() onImportant = new EventEmitter<any>();
-
-  addToImportant(task: Task) {
-    task.isImportant = true;
-    let categories = [this.categoryName];
-    if (this.categoryName !== "Important") {
-      categories.push("Important");
+  completedTask(event: any, task: Task) {
+    if (event.target.className == "fa fa-check-circle-o") {
+      task.isCompleted = true;
+    } else {
+      task.isCompleted = false;
     }
-    // this.onImportant.emit(this.task);
-  }
-
-  removeFromImportant(task: Task) {
-    task.isImportant = false;
-    let categories = [this.categoryName];
-    if (this.categoryName == "Important") {
-      //categories.splice("Important");
-    }
-  }
-
-  completedTask(task: Task) {
-    console.log(task);
-    task.isCompleted = true;
-    this.taskItem.unshift(task);
-    console.log(this.taskItem);
-    //task.unshift(task);
   }
 
   mouseOverFunction(event: any) {
@@ -71,6 +53,17 @@ export class CenterTaskComponent {
 
   mouseOutFunction(event: any) {
     event.target.className = "fa fa-circle-thin";
+  }
+
+  @Output() selectedTask = new EventEmitter<Task>();
+
+  getSelectedTask(task:Task) {
+    this.selectedTask.emit(task);
+  }
+
+  addToRightContent(task:Task) {
+    console.log(task.name);
+    this.selectedTask.emit(task);
   }
 
 }

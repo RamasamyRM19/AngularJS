@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from '../bottom-center-bar/task';
 
 @Component({
   selector: 'app-bottom-right-bar',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./bottom-right-bar.component.scss']
 })
 export class BottomRightBarComponent {
+  ngOnInit(): void {
+    this.selectedTask = {
+      id: 0,
+      name: '',
+      subName: 'Tasks',
+      isImportant: false,
+      isCompleted: false,
+      category: []
+    };
+  }
+  
+  @Input() selectedTask!: Task;
 
 }

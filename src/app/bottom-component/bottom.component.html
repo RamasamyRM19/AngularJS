@@ -4,9 +4,9 @@
 </div>
 
 <!---------------------------- CENTER CONTAINER ------------------------------->
-<div class="center-container" id="center-container" [class.full-screen-view] = "isVisitedItem" [class.center-container] = "isFullScreenItem">
-  <!-- [ngClass] = "hideBar() ? 'full-screen-view' : 'left-container'" -->
-  <app-bottom-center-bar [categoryName]="categoryName" [categoryIcon]="categoryIcon" (isFullScreenItem)='showDefaultScreen($event)'></app-bottom-center-bar>
+<div class="center-container" id="center-container1">
+  <!-- [class.full-screen-view] = "isVisitedItem" [class.center-container] = "isFullScreenItem" -->
+  <app-bottom-center-bar [categoryName]="categoryName" [categoryIcon]="categoryIcon" (isFullScreenItem)='showDefaultScreen($event)' (selectedTask)="getSelectedTask($event)"></app-bottom-center-bar>
 </div>
 
 <!---------------------------- RIGHT CONTAINER ------------------------------->

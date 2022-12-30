@@ -1,5 +1,6 @@
 import { Component, DoCheck, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from './task';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-bottom-center-bar',
@@ -12,22 +13,27 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
 
   @Input() categoryIcon?: String;
   @Input() categoryName = "";
-  public taskItem: Task[] = [];
+  public taskItem: Task[] = this.commonService.getTasks();
   public tasks: Task[] = [];
   public task?: Task;
   public pendingTasks: Task[] = [];
   public categoryItem?: boolean;
+  @Output() selectedTask = new EventEmitter<Task>();
+  public hideCompletedTask = true;
+  public completedTasks: Task[] = [];
+  //public categoryNameWithIcon = this.categoryIcon + "/" + this.categoryName; 
 
   ngOnInit(): void {
     this.categoryIcon = "fa fa-sun-o";
-    this.categoryName = "My Day";
     this.renderTask();
+    this.commonService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory);
   }
 
-  constructor() {
+  constructor(private commonService: CommonService) {
   }
 
   ngDoCheck(): void {
+    //this.categoryNameWithIcon = this.commonService.getSelectedCategory();
     this.renderTask();
   }
 
@@ -38,20 +44,16 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         categories.push("Tasks");
       }
       this.task = {
-        id: this.taskItem.length,
+        id: this.commonService.getTasks().length,
         name: event.target.value,
         subName: "Tasks",
         isImportant: false,
         isCompleted: false,
         category: categories
       }
-      this.taskItem.unshift(this.task);
+      this.commonService.addTask(this.task);
       event.target.value = "";
     }
-  }
-
-  onImportant(categoryName: string) {
-    //this.taskList.emit(categoryName);
   }
 
   renderTask() {
@@ -84,6 +86,34 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
     console.log(this.isFullScreen);
     this.isFullScreen = !this.isFullScreen;
     this.isFullScreenItem.emit(this.isFullScreen);
+  }
+
+  getSelectedTask(task:Task) {
+    this.selectedTask.emit(task);
+    console.log(task);
+  }
+
+  showAndHideCompletedTask() {
+    if (this.hideCompletedTask == true) {
+      this.hideCompletedTask = false;
+    } else {
+      this.hideCompletedTask = true;
+    }
+  }
+
+  public renderCompletedTask() {
+    this.completedTasks = [];
+    if (!(this.categoryName === "Important" || this.categoryName === "Planned")) {
+      this.tasks.forEach(task => {
+        if (task.isCompleted) {
+          task.category.forEach(category => {
+            if (category === this.categoryName) {
+              this.completedTasks.push(task);
+            }
+          });
+        }
+      });
+    }
   }
 
 }

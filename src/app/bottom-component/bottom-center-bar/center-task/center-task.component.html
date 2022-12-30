@@ -1,14 +1,14 @@
 <div class="middle-content1" *ngFor="let item of taskList">
   <div class="circle">
     <!-- <i class={{item.circleIcon}} (mouseover)="item.circleIcon = 'fa fa-check-circle-o'" (mouseout)="item.circleIcon = 'fa fa-circle-thin'" (click)="completedTask(item)"></i> -->
-    <i class="fa fa-circle-thin" (mouseover)="mouseOverFunction($event)" (mouseout)="mouseOutFunction($event)" (click)="completedTask(item)"></i>
+    <i [ngClass]="item.isCompleted ? 'fa-solid fa-circle-check': 'fa fa-circle-thin'" (mouseover)="mouseOverFunction($event)" (mouseout)="mouseOutFunction($event)" (click)="completedTask($event, item)"></i>
   </div>
-  <div class="task">
-    <p class="new">{{item.name}}</p>
+  <div class="task" (click)="addToRightContent(item)">
+    <p class="new" [class.striked-task]="item.isCompleted">{{item.name}}</p>
     <p class="period">{{item.subName}}</p>
   </div>
   <div class="star">
     <!-- <i class={{item.starIcon}} (click)="clickToImportant($event)"></i> -->
-    <i class="fa fa-star-o" (click)="clickToImportant($event, item)"></i>
+    <i [ngClass]="item.isImportant ? 'fa fa-star' : 'fa fa-star-o'" (click)="clickToImportant($event, item)"></i>
   </div>
 </div>
