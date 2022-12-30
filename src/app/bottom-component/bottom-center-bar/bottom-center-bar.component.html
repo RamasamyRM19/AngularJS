@@ -44,16 +44,16 @@
   </div>
 
   <div class="content-three" id="content-three">
-    <app-center-task [taskList]="pendingTasks" [categoryName]="categoryName"></app-center-task>
+    <app-center-task [taskList]="pendingTasks" [categoryName]="categoryName" (selectedTask)="getSelectedTask($event)"></app-center-task>
   </div>
 
-  <div class="completed-title-container" id="completed-title-container">
-    <i class="fa fa-angle-right"></i>
+  <div class="completed-title-container" id="completed-title-container" [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
+    <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
     <p class="completed-title">Completed</p>
   </div>
 
-  <ul class="completed items" id="completed-items">
-    <app-center-task [task]="taskItem"></app-center-task>
+  <ul class="completed items" id="completed-items" [class.hide-block]=hideCompletedTask>
+    <app-center-task [task]="taskItem" [titleName]="categoryName" (selectedTask)="getSelectedTask($event)"></app-center-task>
   </ul>
 
 </div>

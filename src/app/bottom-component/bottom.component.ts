@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Task } from './bottom-center-bar/task';
 
 @Component({
   selector: 'app-bottom-component',
@@ -45,6 +46,12 @@ export class BottomComponent {
     } else {
       return 'full-screen-view';
     }
+  }
+
+  public selectedTask!: Task;
+
+  getSelectedTask(task:Task) {
+    this.selectedTask = task;
   }
 
 }

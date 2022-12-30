@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Menu } from '../menu';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-default-category',
@@ -14,7 +15,7 @@ export class DefaultCategoryComponent {
 
   public selectedCategoryItem?: Menu;
 
-  constructor() {}
+  constructor(private commonService: CommonService) {}
 
   ngOnInit(): void {
     this.selectedCategoryName = "My Day";

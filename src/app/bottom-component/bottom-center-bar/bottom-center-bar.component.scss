@@ -11,18 +11,19 @@ $quaternary-color1: #2564cf;
 
 $primary-color2: #dedede;
 
-.changeBlueColor {
+.changeBlueColor, .changeBlueColor #sun {
   color: $quaternary-color1;
 }
 
-.changeGreenColor {
+.changeGreenColor, .changeGreenColor #sun {
   color: rgb(19, 143, 19);
 }
 
 .container .bottom-nav-container .center-container {
   background-color: $primary-color;
   min-height: 35.7rem;
-  width: 78.8%;
+  // width: 78.8%;
+  width: 53%;
   padding-top: 5px;
   border-left: 1px solid #e7e6e5;
 
@@ -78,7 +79,8 @@ $primary-color2: #dedede;
 
         .sort,
         .suggestion {
-          width: 40%;
+          // width: 40%;
+          width: 49%;
           cursor: pointer;
         }
 
@@ -306,4 +308,8 @@ $primary-color2: #dedede;
 
 .striked-task {
   text-decoration: line-through;
+}
+
+.center-container1 {
+  width: 52%;
 }
