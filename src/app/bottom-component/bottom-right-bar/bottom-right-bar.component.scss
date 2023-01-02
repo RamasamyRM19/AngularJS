@@ -11,8 +11,9 @@ $quaternary-color1: #e7e6e5;
 
 $primary-color2: #2564cf;
 
-.container .bottom-nav-container .right-container {
-  display: inline-block;
+.container .bottom-nav-container .right-container,
+.container .bottom-nav-container .show-block {
+  display: none;
   background-color: $primary-color;
   width: 25.5%;
   height: 36rem;
@@ -132,7 +133,7 @@ $primary-color2: #2564cf;
 
 }
 
-.container .bottom-nav-container .right-container.show-block {
+.show-block {
   display: inline-block;
   width: 26%;
 }

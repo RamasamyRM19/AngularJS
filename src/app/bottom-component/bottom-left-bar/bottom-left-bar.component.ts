@@ -10,6 +10,8 @@ import { CommonService } from 'src/app/common.service';
 
 export class BottomLeftBarComponent {
 
+  ngOnInit() {}
+
   constructor( private commonService: CommonService) { 
   }
 
@@ -19,6 +21,7 @@ export class BottomLeftBarComponent {
 
   public category?: Menu;
   public categoryItem?: string;
+  @Output() renderCategoryTask = new EventEmitter<any>();
 
   addNewCategoryMenu(event: any) {
     if (event.key == "Enter") {
@@ -56,21 +59,14 @@ export class BottomLeftBarComponent {
     this.selectedCategory.emit(categoryName);
   }
 
-  public isVisited = false;
-
-  @Output() isVisitedItem = new EventEmitter<boolean>();
-
-  hideBar() {
-    console.log("Entered");
-    console.log(this.isVisited);
-    this.isVisited = !this.isVisited;
-    this.isVisitedItem.emit(this.isVisited);
-  }
-
-  @Output() renderCategoryTask = new EventEmitter<any>();
+ 
 
   renderCategoryTasks() {
     this.renderCategoryTask.emit();
+  }
+
+  toggleContent() {
+    this.commonService.toggleContent();
   }
 
 }

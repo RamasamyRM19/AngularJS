@@ -11,8 +11,9 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
 
   currentDate = new Date();
 
-  @Input() categoryIcon?: String;
-  @Input() categoryName = "";
+  @Input() categoryIcon?: string;
+  @Input() categoryName: string = "";
+  public taskName: string = "";
   public taskItem: Task[] = this.commonService.getTasks();
   public tasks: Task[] = [];
   public task?: Task;
@@ -37,23 +38,21 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
     this.renderTask();
   }
 
-  addNewTask(event: any) {
-    if (event.key == "Enter") {
+  addNewTask() {
       let categories: string[] = [this.categoryName];
       if (this.categoryName !== "Tasks") {
         categories.push("Tasks");
       }
       this.task = {
         id: this.commonService.getTasks().length,
-        name: event.target.value,
+        name: this.taskName,
         subName: "Tasks",
         isImportant: false,
         isCompleted: false,
         category: categories
       }
       this.commonService.addTask(this.task);
-      event.target.value = "";
-    }
+      this.taskName = "";
   }
 
   renderTask() {
@@ -114,6 +113,10 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         }
       });
     }
+  }
+
+  toggleContent() {
+    this.commonService.toggleContent();
   }
 
 }

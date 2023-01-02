@@ -11,240 +11,249 @@ $quaternary-color1: #2564cf;
 
 $primary-color2: #dedede;
 
-.changeBlueColor, .changeBlueColor #sun {
+.changeBlueColor,
+.changeBlueColor #sun {
   color: $quaternary-color1;
 }
 
-.changeGreenColor, .changeGreenColor #sun {
+.changeGreenColor,
+.changeGreenColor #sun {
   color: rgb(19, 143, 19);
 }
 
-.container .bottom-nav-container .center-container {
-  background-color: $primary-color;
-  min-height: 35.7rem;
-  // width: 78.8%;
-  width: 53%;
-  padding-top: 5px;
-  border-left: 1px solid #e7e6e5;
+.container .bottom-nav-container {
 
-  i {
-    color: rgb(85, 83, 83);
-  }
+  .center-container, .full-screen-view {
+    background-color: $primary-color;
+    min-height: 35.7rem;
+    width: 78.9%;
+    // width: 53%;
+    padding-top: 5px;
+    border-left: 1px solid #e7e6e5;
 
-  .content-one {
-    margin: 20px 20px 20px 33px;
-    width: 95%;
-    line-height: 1.7;
+    i {
+      color: rgb(85, 83, 83);
+    }
 
-    .top-content {
-      width: 100%;
+    .content-one {
+      margin: 20px 20px 20px 33px;
+      width: 95%;
+      line-height: 1.7;
 
-      li {
-        list-style-type: none;
-      }
+      .top-content {
+        width: 100%;
 
-      .top-content-left {
-        width: 69%;
-        font-size: 20px;
-        font-weight: 600;
-
-        i {
-          width: 1.8rem;
+        li {
+          list-style-type: none;
         }
 
-        .myDay {
-          .fa.fa-bars {
-            display: none;
+        .top-content-left {
+          width: 69%;
+          font-size: 20px;
+          font-weight: 600;
+
+          i {
+            width: 1.8rem;
+          }
+
+          .myDay {
+            .fa.fa-bars {
+              display: none;
+            }
+
+            i {
+              margin-left: 1rem;
+            }
+          }
+
+          ul li {
+            display: inline-block;
+            list-style-type: none;
+            width: 18rem;
+          }
+        }
+
+        .top-content-right {
+          text-align: right;
+          width: 29%;
+          font-size: 14px;
+          color: $tertiary-color;
+          font-weight: 100;
+          padding-top: 5px;
+
+          .sort,
+          .suggestion {
+            // width: 40%;
+            width: 49%;
+            cursor: pointer;
           }
 
           i {
-            margin-left: 1rem;
+            font-size: 16px;
+            text-align: center;
+            width: 23%;
+            color: $quaternary-color;
+          }
+
+          .sort i {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+
+    .center {
+
+      width: 96%;
+      margin: 0px 20px 0px 20px;
+
+      .content-two {
+        border-right: 1px solid #ededed;
+        border-left: 1px solid #ededed;
+        border-radius: 6px;
+        width: 100%;
+        box-shadow: 0 4px 6px -6px $primary-color1;
+        margin-top: 11px;
+      }
+
+      .content-three {
+        border-radius: 6px;
+        width: 100%;
+        box-shadow: 0 4px 6px -6px $primary-color1;
+        margin-top: 11px;
+      }
+
+      .content-two {
+
+        .middle-content,
+        .middle-content-one {
+          width: 98%;
+        }
+
+        .middle-content {
+          background-color: $seconday-color1;
+          padding: 15px 3.5px 15px 25px;
+          border-bottom: 1px solid $seconday-color;
+          width: 97.2%;
+
+          .addTask {
+            width: 96%;
+          }
+
+          .addTask #addCategory {
+            border: none;
+            outline: none;
+            width: 100%;
           }
         }
 
-        ul li {
-          display: inline-block;
-          list-style-type: none;
-          width: 18rem;
+        .middle-content-one {
+          padding: 5px 0px 5px 25px;
+
+          .new-one {
+            width: 93.5%;
+            padding-top: 5px;
+
+            div {
+              width: 4.5%;
+            }
+          }
+
+          .new-two {
+            width: 4%;
+
+            button {
+              padding: 7px;
+              background-color: $seconday-color1;
+              border: 1px solid $seconday-color;
+              color: $tertiary-color1;
+            }
+          }
         }
+
       }
 
-      .top-content-right {
-        text-align: right;
-        width: 29%;
-        font-size: 14px;
-        color: $tertiary-color;
-        font-weight: 100;
-        padding-top: 5px;
-
-        .sort,
-        .suggestion {
-          // width: 40%;
-          width: 49%;
-          cursor: pointer;
-        }
-
-        i {
-          font-size: 16px;
-          text-align: center;
-          width: 23%;
-          color: $quaternary-color;
-        }
-
-        .sort i {
-          transform: rotate(90deg);
-        }
-      }
-    }
-  }
-
-  .center {
-
-    width: 96%;
-    margin: 0px 20px 0px 20px;
-
-    .content-two {
-      border-right: 1px solid #ededed;
-      border-left: 1px solid #ededed;
-      border-radius: 6px;
-      width: 100%;
-      box-shadow: 0 4px 6px -6px $primary-color1;
-      margin-top: 11px;
-    }
-
-    .content-three {
-      border-radius: 6px;
-      width: 100%;
-      box-shadow: 0 4px 6px -6px $primary-color1;
-      margin-top: 11px;
-    }
-
-    .content-two {
-
-      .middle-content,
-      .middle-content-one {
-        width: 98%;
-      }
-
-      .middle-content {
+      .content-three .middle-content1 {
         background-color: $seconday-color1;
-        padding: 15px 3.5px 15px 25px;
+        padding: 10px 3.5px 6px 25px;
         border-bottom: 1px solid $seconday-color;
         width: 97.2%;
+        margin-top: 0.5rem;
+        border-radius: 7px;
+        box-shadow: 0 4px 6px -6px #a5a5a5;
 
-        .addTask {
-          width: 96%;
-        }
+        .task {
+          width: 93%;
 
-        .addTask #addCategory {
-          border: none;
-          outline: none;
-          width: 100%;
-        }
-      }
-
-      .middle-content-one {
-        padding: 5px 0px 5px 25px;
-
-        .new-one {
-          width: 93.5%;
-          padding-top: 5px;
-
-          div {
-            width: 4.5%;
+          .new {
+            font-size: 14px;
           }
         }
 
-        .new-two {
-          width: 4%;
-
-          button {
-            padding: 7px;
-            background-color: $seconday-color1;
-            border: 1px solid $seconday-color;
-            color: $tertiary-color1;
-          }
+        .circle,
+        .star {
+          padding-top: 6px;
         }
+
       }
 
-    }
-
-    .content-three .middle-content1 {
-      background-color: $seconday-color1;
-      padding: 10px 3.5px 6px 25px;
-      border-bottom: 1px solid $seconday-color;
-      width: 97.2%;
-      margin-top: 0.5rem;
-      border-radius: 7px;
-      box-shadow: 0 4px 6px -6px #a5a5a5;
-
-      .task {
-        width: 93%;
-
-        .new {
-          font-size: 14px;
-        }
+      .content-two .middle-content .circle,
+      .middle-content1 .circle {
+        width: 3%;
       }
 
-      .circle,
-      .star {
-        padding-top: 6px;
+      .content-two .middle-content .circle i,
+      .content-three .middle-content1 .circle i,
+      .content-two .middle-content .addTask ::placeholder,
+      .content-three .middle-content1 .star i {
+        color: $quaternary-color1;
       }
 
+      // .completed-title-container {
+      //   display: block;
+      //   line-height: 2;
+      //   border-bottom: 0.1px solid $primary-color2;
+      //   margin-left: 0.5rem;
+
+      //   i {
+      //     text-align: center;
+      //     width: 20px;
+      //     pointer-events: none;
+      //   }
+
+      //   .completed-title {
+      //     display: inline-block;
+      //     margin: 0 10px;
+      //     font-weight: 600;
+      //     font-size: 14px;
+      //   }
+      // }
+
+      // .completed-title-container.hide-block {
+      //   display: none;
+      // }
+
+      // .completed.items {
+      //   display: block;
+      // }
+
+      // .completed.items.hide-block {
+      //   display: none;
+      // }
+
     }
 
-    .content-two .middle-content .circle,
-    .middle-content1 .circle {
-      width: 3%;
+    .content-one .period,
+    .center .content-three .middle-content1 .task .period {
+      font-size: 12px;
+      color: $tertiary-color;
+      font-weight: 100;
+      width: 100%;
     }
-
-    .content-two .middle-content .circle i,
-    .content-three .middle-content1 .circle i,
-    .content-two .middle-content .addTask ::placeholder,
-    .content-three .middle-content1 .star i {
-      color: $quaternary-color1;
-    }
-
-    .completed-title-container {
-      display: block;
-      line-height: 2;
-      border-bottom: 0.1px solid $primary-color2;
-      margin-left: 0.5rem;
-
-      i {
-        text-align: center;
-        width: 20px;
-        pointer-events: none;
-      }
-
-      .completed-title {
-        display: inline-block;
-        margin: 0 10px;
-        font-weight: 600;
-        font-size: 14px;
-      }
-    }
-
-    .completed-title-container.hide-block {
-      display: none;
-    }
-
-    .completed.items {
-      display: block;
-    }
-
-    .completed.items.hide-block {
-      display: none;
-    }
-
   }
 
-  .content-one .period,
-  .center .content-three .middle-content1 .task .period {
-    font-size: 12px;
-    color: $tertiary-color;
-    font-weight: 100;
-    width: 100%;
+  .full-screen-view {
+    width: 99.9%;
   }
 }
 
@@ -256,11 +265,6 @@ $primary-color2: #dedede;
 // .container .bottom-nav-container .center-container .center .content-two .middle-content-two div {
 //   display: inline-block;
 // }
-
-
-.container .bottom-nav-container .full-screen-view {
-  width: 99.9vw;
-}
 
 .container .bottom-nav-container .center-container1 {
   width: 52%;
@@ -312,4 +316,67 @@ $primary-color2: #dedede;
 
 .center-container1 {
   width: 52%;
+}
+
+
+
+.completed-task {
+  list-style: none;
+}
+
+.completed-task-hide {
+  display: none;
+}
+
+#completed-task {
+  div {
+    pointer-events: none;
+  }
+}
+
+.completed {
+  width: auto;
+  height: 3rem;
+  line-height: 3.5;
+  margin: .5rem 1.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e1dfdd;
+
+  i,
+  p {
+    pointer-events: none;
+  }
+
+  div {
+    pointer-events: none;
+    padding: 0 1rem;
+    display: inline-block;
+    color: #292827;
+    font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
+    background-color: transparent;
+  }
+
+
+}
+
+.completed-hide {
+  display: none;
+
+  i {
+    pointer-events: none;
+  }
+
+  div {
+    pointer-events: none;
+    padding: 0 1rem;
+    display: inline-block;
+    color: #292827;
+    font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
+    background-color: transparent;
+  }
+
+  #completed-task-count {
+    padding: 0;
+  }
 }

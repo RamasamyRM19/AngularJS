@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../bottom-center-bar/task';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-bottom-right-bar',
   templateUrl: './bottom-right-bar.component.html',
   styleUrls: ['./bottom-right-bar.component.scss']
 })
-export class BottomRightBarComponent {
+export class BottomRightBarComponent implements OnInit {
   ngOnInit(): void {
     this.selectedTask = {
       id: 0,
@@ -19,5 +20,7 @@ export class BottomRightBarComponent {
   }
   
   @Input() selectedTask!: Task;
+
+  constructor(public commonService:CommonService) {}
 
 }

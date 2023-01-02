@@ -2,7 +2,7 @@
   <div class="top-content">
     <div class="top-content-left">
       <ul [ngClass]="changeTitleColorBasedOnCategory()">
-        <i class={{categoryIcon}} id="sun" (click) = "showDefaultScreen()"></i>
+        <i class={{categoryIcon}} id="sun" (click)="toggleContent()"></i>
         <li class="myDay" id="myDay">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
       </ul>
     </div>
@@ -28,7 +28,7 @@
         <i class="fa fa-circle-thin"></i>
       </div>
       <div class="addTask" id="addTask">
-        <input class="add-task-input" id="addCategory" type="text" placeholder="Add a Task" (keydown.enter)="addNewTask($event)">
+        <input [(ngModel)] = "taskName" class="add-task-input" id="addCategory" type="text" placeholder="Add a Task" (keydown.enter)="addNewTask()">
       </div>
     </div>
     <div class="middle-content-one">
@@ -44,16 +44,16 @@
   </div>
 
   <div class="content-three" id="content-three">
-    <app-center-task [taskList]="pendingTasks" [categoryName]="categoryName" (selectedTask)="getSelectedTask($event)"></app-center-task>
+    <app-center-task [taskList]="pendingTasks" [categoryName]="categoryName" (selectedTask)="getSelectedTask($event)" [ngClass]={}></app-center-task>
   </div>
 
   <div class="completed-title-container" id="completed-title-container" [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
     <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
-    <p class="completed-title">Completed</p>
+    <div class="completed-title">Completed</div>
   </div>
 
-  <ul class="completed items" id="completed-items" [class.hide-block]=hideCompletedTask>
+  <div class="completed items" id="completed-items" class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
     <app-center-task [task]="taskItem" [titleName]="categoryName" (selectedTask)="getSelectedTask($event)"></app-center-task>
-  </ul>
+  </div>
 
 </div>

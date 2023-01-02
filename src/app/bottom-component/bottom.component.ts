@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Task } from './bottom-center-bar/task';
+import { CommonService } from '../common.service';
 
 @Component({
   selector: 'app-bottom-component',
@@ -10,45 +11,17 @@ export class BottomComponent {
 
   public categoryName: string = "";
   public categoryIcon?: string;
+  public selectedTask!: Task;
 
-  constructor() {
+  ngOnInit(): void {}
+
+  constructor(public commonService: CommonService) {
   }
-
-  ngOnInit(): void { }
 
   getCategory(categoryName: string) {
     this.categoryIcon = categoryName.split("/")[0];
     this.categoryName = categoryName.split("/")[1];
   }
-
-  public isVisitedItem?: boolean;
-
-  hideBar(isVisited:boolean) {
-    this.isVisitedItem = isVisited;
-    //this.isVisited = !this.isVisited;
-    console.log("Entered into Parent");
-    console.log(this.isVisitedItem);
-    if (this.isVisitedItem) {
-      return 'hide-block';
-    } else {
-      return 'left-container';
-    }
-  }
-
-  public isFullScreenItem?: boolean;
-
-  showDefaultScreen(isFullScreen:boolean) {
-    this.isFullScreenItem = isFullScreen;
-    console.log("Entered into Parent");
-    console.log(this.isFullScreenItem);
-    if (this.isFullScreenItem) {
-      return 'center-container';
-    } else {
-      return 'full-screen-view';
-    }
-  }
-
-  public selectedTask!: Task;
 
   getSelectedTask(task:Task) {
     this.selectedTask = task;

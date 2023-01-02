@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../task';
+import { CommonService } from 'src/app/common.service';
 
 @Component({
   selector: 'app-center-task',
@@ -12,6 +13,7 @@ export class CenterTaskComponent {
   public taskItem: Task[] = [];
   @Input() titleName = "";
   @Input() categoryName?: String;
+  public selectedCategoryItem?: Task;
 
   ngOnInit(): void {
     this.renderTask();
@@ -26,34 +28,7 @@ export class CenterTaskComponent {
     });
   }
 
-  constructor() { }
-
-  clickToImportant(event: any, task: Task) {
-    if (event.target.className == "fa fa-star-o") {
-      task.isImportant = true;
-      task.category.push("Important");
-    } else {
-      task.isImportant = false;
-      let index = task.category.indexOf('Important');
-      task.category.splice(index, 1);
-    }
-  }
-
-  completedTask(event: any, task: Task) {
-    if (event.target.className == "fa fa-check-circle-o") {
-      task.isCompleted = true;
-    } else {
-      task.isCompleted = false;
-    }
-  }
-
-  mouseOverFunction(event: any) {
-    event.target.className = "fa fa-check-circle-o";
-  }
-
-  mouseOutFunction(event: any) {
-    event.target.className = "fa fa-circle-thin";
-  }
+  constructor(public commonService: CommonService) { }
 
   @Output() selectedTask = new EventEmitter<Task>();
 
@@ -61,9 +36,7 @@ export class CenterTaskComponent {
     this.selectedTask.emit(task);
   }
 
-  addToRightContent(task:Task) {
-    console.log(task.name);
-    this.selectedTask.emit(task);
+  toggleContent() {
+    this.commonService.toggleRightContent();
   }
-
 }

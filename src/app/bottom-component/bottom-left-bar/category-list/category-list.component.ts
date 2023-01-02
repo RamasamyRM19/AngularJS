@@ -3,11 +3,11 @@ import { Menu } from '../menu';
 import { CommonService } from 'src/app/common.service';
 
 @Component({
-  selector: 'app-default-category',
-  templateUrl: './default-category.component.html',
-  styleUrls: ['./default-category.component.scss']
+  selector: 'app-category-list',
+  templateUrl: './category-list.component.html',
+  styleUrls: ['./category-list.component.scss']
 })
-export class DefaultCategoryComponent {
+export class CategoryListComponent {
 
   @Input() menu?:Menu[];
 

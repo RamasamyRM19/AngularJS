@@ -1,9 +1,9 @@
 <div class="left">
   <div class="bar">
-    <button id="bar" (click) = "hideBar()"><i class="fa fa-bars"></i></button>
+    <button id="bar" (click)=toggleContent()><i class="fa fa-bars"></i></button>
   </div>
   <div class="default content">
-    <app-default-category [menu]="CategoryMenu" (onSelected)="onSelected($event)" [selectedCategoryName]="selectedCategoryName"></app-default-category>
+    <app-category-list [menu]="CategoryMenu" (onSelected)="onSelected($event)" [selectedCategoryName]="selectedCategoryName"></app-category-list>
   </div>
   <div class="new">
     <!-- <form #addTodo="ngForm" (submit)="onSubmit()"> -->

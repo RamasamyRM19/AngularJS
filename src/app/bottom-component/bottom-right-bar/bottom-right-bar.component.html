@@ -1,12 +1,12 @@
 <div class="section task-title" id="task-title-section">
   <div class="section-icon">
-    <i [ngClass]="(selectedTask.isCompleted?'fa-solid fa-circle-check':'fa-regular fa-circle')"></i>
+    <i [ngClass]="selectedTask.isCompleted ? 'fa-solid fa-circle-check': 'fa-regular fa-circle'" (mouseover)="commonService.mouseOverFunction($event)" (mouseout)="commonService.mouseOutFunction($event)" (click)="commonService.completedTask(selectedTask)"></i>
   </div>
-  <div class="section-name" id="title-content" [class.strike]="selectedTask.isCompleted">
+  <div class="section-name" id="title-content" [class.strike-task]="selectedTask.isCompleted">
     {{selectedTask.name}}
   </div>
   <div class="section-icon">
-    <i class="fa-regular fa-star"></i>
+    <i [ngClass]="selectedTask.isImportant ? 'fa fa-star' : 'fa fa-star-o'" (click)="commonService.clickToImportant($event, selectedTask)"></i>
   </div>
 </div>
 
