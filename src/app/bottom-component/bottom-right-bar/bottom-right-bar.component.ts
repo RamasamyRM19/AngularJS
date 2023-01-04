@@ -18,7 +18,8 @@ export class BottomRightBarComponent implements OnInit {
       subName: 'Tasks',
       isImportant: false,
       isCompleted: false,
-      category: []
+      categoryIds: [],
+      note: ''
     };
   }
 

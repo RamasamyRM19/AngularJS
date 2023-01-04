@@ -8,15 +8,14 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./center-task.component.scss']
 })
 export class CenterTaskComponent {
-  
-  @Input() taskList: Task[] =[];
-  @Output() selectedTask = new EventEmitter<Task>();
+
+  @Input() taskList!: Task[];
 
   ngOnInit(): void {}
 
   constructor(public commonService: CommonService) { }
 
-  getSelectedTask(task:Task) {
-    this.selectedTask.emit(task);
+  getSelectedTask(task:Task): void {
+    this.commonService.setTasks(task);
   }
 }

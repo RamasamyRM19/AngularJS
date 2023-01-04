@@ -4,5 +4,6 @@ export interface Task {
   subName: string;
   isImportant:Boolean;
   isCompleted:Boolean;
-  category: string[];
+  categoryIds: number[];
+  note: string;
 }

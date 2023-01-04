@@ -11,40 +11,34 @@ import { CommonService } from 'src/app/common.service';
 export class BottomLeftBarComponent {
 
   public CategoryMenu: Menu[] = this.commonService.getCategories();
-  public selectedCategoryName?: string;
+  public selectedCategory?: string;
   public category?: Menu;
-  public categoryItem?: string;
+  public categoryItem: string = "";
 
-  @Output() renderCategoryTask = new EventEmitter<any>();
-  @Output() selectedCategory = new EventEmitter<string>();
+  ngOnInit() { }
 
-  ngOnInit() {}
-
-  constructor( private commonService: CommonService) { 
+  constructor(private commonService: CommonService) {
   }
 
-  addNewCategoryMenu(event: any) {
-    if (event.key == "Enter") {
-      event.target.value = event.target.value.trim();
-      if (event.target.value == '' || event.target.value == ' ') {
-        event.target.value = 'Untitled list';
-      }
-      let count = this.countExistingCategory(event.target.value);
-      if (count > 0) {
-        event.target.value += " (" + count + ")";
-      }
-      this.category = {
-        id: this.CategoryMenu.length,
-        name: event.target.value,
-        icon: "fa fa-list-ul",
-        isLastDefaultCategory: false
-      }
-      this.commonService.addCategory(this.category);
-      this.selectedCategoryName = event.target.value;
-      this.categoryItem = this.category.icon + "/" + this.category.name;
-      this.onSelected(this.categoryItem);
-      event.target.value = "";
+  addNewCategoryMenu(): void {
+    this.categoryItem = this.categoryItem.trim();
+    if (this.categoryItem == '' || this.categoryItem == ' ') {
+      this.categoryItem = 'Untitled list';
     }
+    let count = this.countExistingCategory(this.categoryItem);
+    if (count > 0) {
+      this.categoryItem = this.categoryItem + " (" + count + ")";
+    }
+    let category = {
+      id: this.CategoryMenu.length + 1,
+      name: this.categoryItem,
+      icon: "fa fa-list-ul",
+      isLastDefaultCategory: false
+    }
+    this.commonService.addCategory(category);
+    this.selectedCategory = this.categoryItem;
+    this.onSelected(category);
+    this.categoryItem = "";
   }
 
   countExistingCategory(name: String) {
@@ -57,13 +51,13 @@ export class BottomLeftBarComponent {
     return count;
   }
 
-  onSelected(categoryName: string) {
-    this.selectedCategory.emit(categoryName);
+  onSelected(category: Menu) {
+    this.commonService.setSelectedCategory(category);
   }
 
-  renderCategoryTasks() {
-    this.renderCategoryTask.emit();
-  }
+  // renderCategoryTasks() {
+  //   this.renderCategoryTask.emit();
+  // }
 
   toggleContent() {
     this.commonService.toggleContent();

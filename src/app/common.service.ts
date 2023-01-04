@@ -2,10 +2,12 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Menu } from './bottom-component/bottom-left-bar/menu';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Task } from './bottom-component/bottom-center-bar/task';
+import { Constant } from './constant';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CommonService {
 
   private CategoryMenu: Menu[] = [
@@ -15,9 +17,21 @@ export class CommonService {
     { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
     { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
   ];
-  private taskList: Task[] = [];  
-  private selectedCategory = new BehaviorSubject('My Day');
+  private taskList: Task[] = [];
+  private task: Task = {
+    id: 0,
+    name: '',
+    subName: 'Tasks',
+    isImportant: false,
+    isCompleted: false,
+    categoryIds: [],
+    note: ''
+  };
+  private selectedCategory = new BehaviorSubject(this.CategoryMenu[0]);
   public categoryDetails$ = this.selectedCategory.asObservable();
+  private selectedTask = new BehaviorSubject(this.task);
+  public selectedTask$ = this.selectedTask.asObservable();
+  public constant = new Constant();
 
   public leftContainer = 'left-container';
   public centerContainer = 'center-container';
@@ -33,13 +47,17 @@ export class CommonService {
     this.CategoryMenu.push(category);
   }
 
-  // setSelectedCategory(categoryIcon: string, categoryName: string) {
-  //   return this.selectedCategory.next(categoryIcon + "/" + categoryName);
-  // }
+  setSelectedCategory(category: Menu): void {
+    this.selectedCategory.next(category);
+  }
 
-  // getSelectedCategory() {
-  //   return this.selectedCategory;
-  // }
+  getSelectedCategory() {
+    return this.selectedCategory;
+  }
+
+  setTasks(task: Task) {
+    this.selectedTask.next(task);
+  }
 
   getTasks(): Task[] {
     return this.taskList;
@@ -64,11 +82,11 @@ export class CommonService {
   clickToImportant(task: Task) {
     if (task.isImportant == false) {
       task.isImportant = true;
-      task.category.push("Important");
+      task.categoryIds.push(this.constant.IMPORTANT_ID);
     } else {
       task.isImportant = false;
-      let index = task.category.indexOf('Important');
-      task.category.splice(index, 1);
+      let index = task.categoryIds.indexOf(this.constant.IMPORTANT_ID);
+      task.categoryIds.splice(index, 1);
     }
   }
 
@@ -81,13 +99,13 @@ export class CommonService {
   }
 
   toggleContent() {
-    if(this.leftContainer === 'left-container') {
+    if (this.leftContainer === 'left-container') {
       this.leftContainer = 'hide-left-container';
       this.centerContainer = 'full-screen-view';
     } else if (this.centerContainer === 'full-screen-view') {
       this.leftContainer = 'left-container';
       this.centerContainer = 'center-container';
-    } 
+    }
   }
 
   toggleRightContent() {

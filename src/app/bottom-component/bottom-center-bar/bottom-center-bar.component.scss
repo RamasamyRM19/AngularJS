@@ -177,7 +177,7 @@ $primary-color2: #dedede;
         background-color: $seconday-color1;
         padding: 10px 3.5px 6px 25px;
         border-bottom: 1px solid $seconday-color;
-        width: 97.2%;
+        width: 62.4rem;
         margin-top: 0.5rem;
         border-radius: 7px;
         box-shadow: 0 4px 6px -6px #a5a5a5;
@@ -208,39 +208,6 @@ $primary-color2: #dedede;
       .content-three .middle-content1 .star i {
         color: $quaternary-color1;
       }
-
-      // .completed-title-container {
-      //   display: block;
-      //   line-height: 2;
-      //   border-bottom: 0.1px solid $primary-color2;
-      //   margin-left: 0.5rem;
-
-      //   i {
-      //     text-align: center;
-      //     width: 20px;
-      //     pointer-events: none;
-      //   }
-
-      //   .completed-title {
-      //     display: inline-block;
-      //     margin: 0 10px;
-      //     font-weight: 600;
-      //     font-size: 14px;
-      //   }
-      // }
-
-      // .completed-title-container.hide-block {
-      //   display: none;
-      // }
-
-      // .completed.items {
-      //   display: block;
-      // }
-
-      // .completed.items.hide-block {
-      //   display: none;
-      // }
-
     }
 
     .content-one .period,
@@ -257,59 +224,6 @@ $primary-color2: #dedede;
   }
 }
 
-
-// .container .bottom-nav-container .center-container .center .content-two .middle-content,
-// .container .bottom-nav-container .center-container .center .content-two .container .bottom-nav-container .center-container .content-one .top-content div,
-// .container .bottom-nav-container .center-container .center .content-two .middle-content div,
-// .container .bottom-nav-container .center-container .center .content-two .middle-content-one div,
-// .container .bottom-nav-container .center-container .center .content-two .middle-content-two div {
-//   display: inline-block;
-// }
-
-.container .bottom-nav-container .center-container1 {
-  width: 52%;
-
-  .content-one .top-content .top-content-right {
-
-    .sort,
-    .suggestion {
-      width: 49%;
-    }
-  }
-
-  .center {
-    .content-two {
-      .middle-content {
-        width: 95.7%;
-
-        .circle {
-          width: 4%;
-        }
-      }
-
-      .middle-content-one .new-one {
-        width: 89.5%;
-      }
-    }
-
-    .content-three .middle-content1 {
-      width: 95.2%;
-
-      .circle {
-        width: 5%;
-      }
-
-      .task {
-        width: 92%;
-      }
-    }
-  }
-
-  .center .content-three .middle-content1 .center .content-two .middle-content .center .content-two .middle-content .addTask {
-    width: 93%;
-  }
-}
-
 .striked-task {
   text-decoration: line-through;
 }
@@ -322,7 +236,6 @@ $primary-color2: #dedede;
 .container .bottom-nav-container .center-container .center .content-three {
   height: auto;
   max-height: 28.5rem;
-  overflow-y: auto;
 
   &::-webkit-scrollbar {
     width: .5rem;
@@ -343,10 +256,10 @@ $primary-color2: #dedede;
   }
 
   .completed {
-    width: auto;
+    width: 97%;
     height: 3rem;
     line-height: 3.5;
-    margin: .5rem 1.8rem;
+    margin: 0.5rem 0rem 0.5rem 0.8rem;
     font-size: 0.85rem;
     font-weight: 600;
     border-bottom: 1px solid #e1dfdd;

@@ -11,9 +11,9 @@ export class CategoryListComponent {
 
   public selectedCategoryItem?: Menu;
 
-  @Input() menu?:Menu[];
   @Input() public selectedCategoryName?:string;
 
+  public menu: Menu[] = this.commonService.getCategories();
   @Output() onSelected = new EventEmitter<any>();
   
   ngOnInit(): void {
@@ -23,9 +23,8 @@ export class CategoryListComponent {
   constructor(private commonService: CommonService) {}
 
   onSelectCategory(category:Menu) {
-    this.selectedCategoryName = category.icon + "/" + category.name;
-    this.onSelected.emit(this.selectedCategoryName);
-    this.selectedCategoryItem = category;
+    this.selectedCategoryName = category.name;
+    this.commonService.setSelectedCategory(category);
   }
 
 }

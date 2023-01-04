@@ -44,14 +44,14 @@
   </div>
 
   <div class="content-three" id="content-three">
-    <app-center-task [taskList]="pendingTasks" (selectedTask)="getSelectedTask($event)"></app-center-task>
+    <app-center-task [taskList]="pendingTasks"></app-center-task>
 
     <div [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
       <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
       <div>Completed</div>
     </div>
     <div class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
-      <app-center-task [taskList]="completedTasks" (selectedTask)="getSelectedTask($event)"></app-center-task>
+      <app-center-task [taskList]="completedTasks"></app-center-task>
     </div>
   </div>
 

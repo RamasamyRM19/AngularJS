@@ -3,11 +3,11 @@
     <button id="bar" (click)=toggleContent()><i class="fa fa-bars"></i></button>
   </div>
   <div class="default content">
-    <app-category-list [menu]="CategoryMenu" (onSelected)="onSelected($event)" [selectedCategoryName]="selectedCategoryName"></app-category-list>
+    <app-category-list [selectedCategoryName]="selectedCategory"></app-category-list>
   </div>
   <div class="new">
       <div class="new-list" id="new-list"><i class="fa fa-plus"></i>
-        <input type="text" name="todo" class="form-control" id="add" placeholder="New list" (keypress)="addNewCategoryMenu($event)" required>
+        <input type="text" name="todo" [(ngModel)]="categoryItem" class="form-control" id="add" placeholder="New list" (keydown.enter)="addNewCategoryMenu()" required>
       </div>
       <div class="square"><i class="fa fa-plus-square"></i></div>
   </div>
