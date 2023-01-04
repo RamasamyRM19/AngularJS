@@ -9,60 +9,63 @@ import { CommonService } from 'src/app/common.service';
 })
 export class BottomCenterBarComponent implements OnInit, DoCheck {
 
-  currentDate = new Date();
-
-  @Input() categoryIcon?: string;
-  @Input() categoryName: string = "";
+  public currentDate = new Date();
   public taskName: string = "";
   public taskItem: Task[] = this.commonService.getTasks();
   public tasks: Task[] = [];
   public task?: Task;
   public pendingTasks: Task[] = [];
   public categoryItem?: boolean;
-  @Output() selectedTask = new EventEmitter<Task>();
   public hideCompletedTask = true;
   public completedTasks: Task[] = [];
-  //public categoryNameWithIcon = this.categoryIcon + "/" + this.categoryName; 
+
+  @Input() categoryIcon?: string;
+  @Input() categoryName: string = "";
+
+  @Output() selectedTask = new EventEmitter<Task>();
 
   ngOnInit(): void {
     this.categoryIcon = "fa fa-sun-o";
     this.renderTask();
     this.commonService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory);
+    this.renderCompletedTask();
   }
 
   constructor(private commonService: CommonService) {
   }
 
   ngDoCheck(): void {
-    //this.categoryNameWithIcon = this.commonService.getSelectedCategory();
     this.renderTask();
+    this.renderCompletedTask();
   }
 
   addNewTask() {
-      let categories: string[] = [this.categoryName];
-      if (this.categoryName !== "Tasks") {
-        categories.push("Tasks");
-      }
-      this.task = {
-        id: this.commonService.getTasks().length,
-        name: this.taskName,
-        subName: "Tasks",
-        isImportant: false,
-        isCompleted: false,
-        category: categories
-      }
-      this.commonService.addTask(this.task);
-      this.taskName = "";
+    let categories: string[] = [this.categoryName];
+    if (this.categoryName !== "Tasks") {
+      categories.push("Tasks");
+    }
+    this.task = {
+      id: this.commonService.getTasks().length,
+      name: this.taskName,
+      subName: "Tasks",
+      isImportant: false,
+      isCompleted: false,
+      category: categories
+    }
+    this.commonService.addTask(this.task);
+    this.taskName = "";
   }
 
   renderTask() {
     this.pendingTasks = [];
     this.taskItem.forEach(task => {
-      task.category.forEach(category => {
-        if (category === this.categoryName) {
-          this.pendingTasks.push(task);
-        }
-      });
+      if (!task.isCompleted) {
+        task.category.forEach(category => {
+          if (category === this.categoryName) {
+            this.pendingTasks.push(task);
+          }
+        });
+      }
     });
   }
 
@@ -76,18 +79,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
     }
   }
 
-  public isFullScreen = true;
-
-  @Output() isFullScreenItem = new EventEmitter<boolean>();
-
-  showDefaultScreen() {
-    console.log("Entered");
-    console.log(this.isFullScreen);
-    this.isFullScreen = !this.isFullScreen;
-    this.isFullScreenItem.emit(this.isFullScreen);
-  }
-
-  getSelectedTask(task:Task) {
+  getSelectedTask(task: Task) {
     this.selectedTask.emit(task);
     console.log(task);
   }
@@ -113,10 +105,6 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         }
       });
     }
-  }
-
-  toggleContent() {
-    this.commonService.toggleContent();
   }
 
 }

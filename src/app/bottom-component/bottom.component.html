@@ -1,18 +1,14 @@
 <!---------------------------- BOTTOM LEFT CONTAINER ------------------------------->
-<!-- [class.hide-block] = "isVisitedItem" [class.left-container] = "isFullScreenItem" -->
 <div class={{commonService.leftContainer}}>
-  <!-- (isVisitedItem)='hideBar($event)' -->
   <app-bottom-left-bar (selectedCategory)="getCategory($event)"></app-bottom-left-bar>
 </div>
 
 <!---------------------------- CENTER CONTAINER ------------------------------->
-<!-- [class.full-screen-view] = "isVisitedItem" [class.center-container] = "isFullScreenItem" -->
 <div class={{commonService.centerContainer}}>
-  <!-- [class.full-screen-view] = "isVisitedItem" [class.center-container] = "isFullScreenItem" -->
   <app-bottom-center-bar [categoryName]="categoryName" [categoryIcon]="categoryIcon" (selectedTask)="getSelectedTask($event)"></app-bottom-center-bar>
 </div>
 
 <!---------------------------- RIGHT CONTAINER ------------------------------->
-<div class="right-container" id="right-container">
+<div class={{commonService.rightContainer}}   >
   <app-bottom-right-bar [selectedTask]="selectedTask"></app-bottom-right-bar>
 </div>

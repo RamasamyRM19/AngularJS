@@ -26,7 +26,7 @@ $primary-color2: #dedede;
   .center-container, .full-screen-view {
     background-color: $primary-color;
     min-height: 35.7rem;
-    width: 78.9%;
+    width: 78.3%;
     // width: 53%;
     padding-top: 5px;
     border-left: 1px solid #e7e6e5;
@@ -36,7 +36,7 @@ $primary-color2: #dedede;
     }
 
     .content-one {
-      margin: 20px 20px 20px 33px;
+      margin: 20px 20px 9px 33px;
       width: 95%;
       line-height: 1.7;
 
@@ -48,7 +48,7 @@ $primary-color2: #dedede;
         }
 
         .top-content-left {
-          width: 69%;
+          width: 70%;
           font-size: 20px;
           font-weight: 600;
 
@@ -84,7 +84,7 @@ $primary-color2: #dedede;
           .sort,
           .suggestion {
             // width: 40%;
-            width: 49%;
+            width: 43%;
             cursor: pointer;
           }
 
@@ -148,14 +148,14 @@ $primary-color2: #dedede;
         }
 
         .middle-content-one {
-          padding: 5px 0px 5px 25px;
+          padding: 5px 0px 8px 25px;
 
           .new-one {
             width: 93.5%;
             padding-top: 5px;
 
             div {
-              width: 4.5%;
+              width: 4%;
             }
           }
 
@@ -319,64 +319,74 @@ $primary-color2: #dedede;
 }
 
 
+.container .bottom-nav-container .center-container .center .content-three {
+  height: auto;
+  max-height: 28.5rem;
+  overflow-y: auto;
 
-.completed-task {
-  list-style: none;
-}
-
-.completed-task-hide {
-  display: none;
-}
-
-#completed-task {
-  div {
-    pointer-events: none;
-  }
-}
-
-.completed {
-  width: auto;
-  height: 3rem;
-  line-height: 3.5;
-  margin: .5rem 1.8rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-bottom: 1px solid #e1dfdd;
-
-  i,
-  p {
-    pointer-events: none;
+  &::-webkit-scrollbar {
+    width: .5rem;
   }
 
-  div {
-    pointer-events: none;
-    padding: 0 1rem;
-    display: inline-block;
-    color: #292827;
-    font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
-    background-color: transparent;
+  .completed-task {
+    list-style: none;
   }
 
-
-}
-
-.completed-hide {
-  display: none;
-
-  i {
-    pointer-events: none;
+  .completed-task-hide {
+    display: none;
   }
 
-  div {
-    pointer-events: none;
-    padding: 0 1rem;
-    display: inline-block;
-    color: #292827;
-    font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
-    background-color: transparent;
+  #completed-task {
+    div {
+      pointer-events: none;
+    }
   }
 
-  #completed-task-count {
-    padding: 0;
+  .completed {
+    width: auto;
+    height: 3rem;
+    line-height: 3.5;
+    margin: .5rem 1.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e1dfdd;
+
+    i,
+    p {
+      pointer-events: none;
+    }
+
+    div {
+      pointer-events: none;
+      padding: 0 1rem;
+      display: inline-block;
+      color: #292827;
+      font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
+      background-color: transparent;
+    }
+
+
   }
+
+  .completed-hide {
+    display: none;
+
+    i {
+      pointer-events: none;
+    }
+
+    div {
+      pointer-events: none;
+      padding: 0 1rem;
+      display: inline-block;
+      color: #292827;
+      font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
+      background-color: transparent;
+    }
+
+    #completed-task-count {
+      padding: 0;
+    }
+  }
+
 }

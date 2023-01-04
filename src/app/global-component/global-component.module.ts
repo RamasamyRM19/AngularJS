@@ -3,15 +3,23 @@ import { CommonModule } from '@angular/common';
 import { GlobalComponentComponent } from './global-component.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { AnnouncementComponent } from './announcement/announcement.component';
+import { HelpComponent } from './help/help.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     GlobalComponentComponent,
     NavBarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    AnnouncementComponent,
+    HelpComponent,
+    SettingsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     GlobalComponentComponent,

@@ -17,7 +17,7 @@ export class CommonService {
   ];
   private taskList: Task[] = [];  
   private selectedCategory = new BehaviorSubject('My Day');
-  categoryDetails$ = this.selectedCategory.asObservable();
+  public categoryDetails$ = this.selectedCategory.asObservable();
 
   public leftContainer = 'left-container';
   public centerContainer = 'center-container';
@@ -61,8 +61,8 @@ export class CommonService {
     }
   }
 
-  clickToImportant(event: any, task: Task) {
-    if (event.target.className === "fa fa-star-o") {
+  clickToImportant(task: Task) {
+    if (task.isImportant == false) {
       task.isImportant = true;
       task.category.push("Important");
     } else {

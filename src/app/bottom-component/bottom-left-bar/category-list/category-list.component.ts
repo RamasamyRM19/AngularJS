@@ -9,19 +9,18 @@ import { CommonService } from 'src/app/common.service';
 })
 export class CategoryListComponent {
 
-  @Input() menu?:Menu[];
-
-  @Input() public selectedCategoryName?:string;
-
   public selectedCategoryItem?: Menu;
 
-  constructor(private commonService: CommonService) {}
+  @Input() menu?:Menu[];
+  @Input() public selectedCategoryName?:string;
 
+  @Output() onSelected = new EventEmitter<any>();
+  
   ngOnInit(): void {
     this.selectedCategoryName = "My Day";
   }
 
-  @Output() onSelected = new EventEmitter<any>();
+  constructor(private commonService: CommonService) {}
 
   onSelectCategory(category:Menu) {
     this.selectedCategoryName = category.icon + "/" + category.name;

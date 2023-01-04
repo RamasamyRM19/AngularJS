@@ -3,6 +3,7 @@
 /*---------------------------- BOTTOM CONTAINER -------------------------------*/
 .container .bottom-nav-container {
   width: 100%;
+  // display: none;
 
   div {
     display: inline-block;
@@ -16,7 +17,7 @@
   .hide-left-container {
     background-color: $seconday-color;
     height: 35rem;
-    width: 21%;
+    width: 18.2rem;
     font-size: 14px;
 
     ::-webkit-scrollbar {
@@ -94,7 +95,7 @@
 
         .new-list {
           width: 50%;
-          padding-left: 25px;
+          padding-left: 1.8rem;
 
           #add {
             width: 74%;

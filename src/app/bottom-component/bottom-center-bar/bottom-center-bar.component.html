@@ -2,7 +2,7 @@
   <div class="top-content">
     <div class="top-content-left">
       <ul [ngClass]="changeTitleColorBasedOnCategory()">
-        <i class={{categoryIcon}} id="sun" (click)="toggleContent()"></i>
+        <i class={{categoryIcon}} id="sun"></i>
         <li class="myDay" id="myDay">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
       </ul>
     </div>
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="period">
-    <p id="period">{{currentDate | date:'EEEE, MMMM dd'}}</p>
+    <p id="period">{{currentDate | date:'EEEE, MMMM d'}}</p>
   </div>
 </div>
 
@@ -44,16 +44,24 @@
   </div>
 
   <div class="content-three" id="content-three">
-    <app-center-task [taskList]="pendingTasks" [categoryName]="categoryName" (selectedTask)="getSelectedTask($event)" [ngClass]={}></app-center-task>
+    <app-center-task [taskList]="pendingTasks" (selectedTask)="getSelectedTask($event)"></app-center-task>
+
+    <div [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
+      <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
+      <div>Completed</div>
+    </div>
+    <div class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
+      <app-center-task [taskList]="completedTasks" (selectedTask)="getSelectedTask($event)"></app-center-task>
+    </div>
   </div>
 
-  <div class="completed-title-container" id="completed-title-container" [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
+  <!-- <div class="completed-title-container" id="completed-title-container" [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
     <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
     <div class="completed-title">Completed</div>
   </div>
 
   <div class="completed items" id="completed-items" class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
     <app-center-task [task]="taskItem" [titleName]="categoryName" (selectedTask)="getSelectedTask($event)"></app-center-task>
-  </div>
+  </div> -->
 
 </div>

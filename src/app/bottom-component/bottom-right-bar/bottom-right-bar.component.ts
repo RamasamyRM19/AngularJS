@@ -8,6 +8,9 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./bottom-right-bar.component.scss']
 })
 export class BottomRightBarComponent implements OnInit {
+ 
+  @Input() selectedTask!: Task;
+  
   ngOnInit(): void {
     this.selectedTask = {
       id: 0,
@@ -18,8 +21,6 @@ export class BottomRightBarComponent implements OnInit {
       category: []
     };
   }
-  
-  @Input() selectedTask!: Task;
 
   constructor(public commonService:CommonService) {}
 

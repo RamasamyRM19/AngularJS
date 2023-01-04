@@ -10,21 +10,25 @@ import { CommonService } from 'src/app/common.service';
 
 export class BottomLeftBarComponent {
 
+  public CategoryMenu: Menu[] = this.commonService.getCategories();
+  public selectedCategoryName?: string;
+  public category?: Menu;
+  public categoryItem?: string;
+
+  @Output() renderCategoryTask = new EventEmitter<any>();
+  @Output() selectedCategory = new EventEmitter<string>();
+
   ngOnInit() {}
 
   constructor( private commonService: CommonService) { 
   }
 
-  public CategoryMenu: Menu[] = this.commonService.getCategories();
-
-  public selectedCategoryName?: string;
-
-  public category?: Menu;
-  public categoryItem?: string;
-  @Output() renderCategoryTask = new EventEmitter<any>();
-
   addNewCategoryMenu(event: any) {
     if (event.key == "Enter") {
+      event.target.value = event.target.value.trim();
+      if (event.target.value == '' || event.target.value == ' ') {
+        event.target.value = 'Untitled list';
+      }
       let count = this.countExistingCategory(event.target.value);
       if (count > 0) {
         event.target.value += " (" + count + ")";
@@ -53,13 +57,9 @@ export class BottomLeftBarComponent {
     return count;
   }
 
-  @Output() selectedCategory = new EventEmitter<string>();
-
   onSelected(categoryName: string) {
     this.selectedCategory.emit(categoryName);
   }
-
- 
 
   renderCategoryTasks() {
     this.renderCategoryTask.emit();

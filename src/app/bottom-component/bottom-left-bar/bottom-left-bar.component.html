@@ -6,13 +6,10 @@
     <app-category-list [menu]="CategoryMenu" (onSelected)="onSelected($event)" [selectedCategoryName]="selectedCategoryName"></app-category-list>
   </div>
   <div class="new">
-    <!-- <form #addTodo="ngForm" (submit)="onSubmit()"> -->
       <div class="new-list" id="new-list"><i class="fa fa-plus"></i>
         <input type="text" name="todo" class="form-control" id="add" placeholder="New list" (keypress)="addNewCategoryMenu($event)" required>
-        <!-- <input [(ngModel)] = "newCategory" id="add" type="text" placeholder="New list"> -->
       </div>
       <div class="square"><i class="fa fa-plus-square"></i></div>
-    <!-- </form> -->
   </div>
 </div>
 <div class="left-bottom">

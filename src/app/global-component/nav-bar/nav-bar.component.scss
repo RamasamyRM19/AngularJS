@@ -11,17 +11,27 @@
 
   div {
     display: inline-block;
-    margin-top: 3px;
+    padding-top: 0.25rem;
+  }
+
+  .launcher-icon {
+    width: 4%;
   }
 
   .dots-icon {
-    width: 4%;
+    width: 87%;
     text-align: center;
     word-spacing: -3px;
     font-size: 18px;
 
     &:hover {
       cursor: pointer;
+      background-color: darkblue;
+      min-height: 2rem;
+    }
+
+    i {
+      width: 13%;
     }
   }
 
@@ -41,6 +51,7 @@
       width: 12%;
       text-align: left;
       font-weight: 600;
+      margin-left: 0.1rem;
 
       &:hover {
         text-decoration: underline;
@@ -49,11 +60,15 @@
     }
 
     .icon-right {
-      width: 17%;
+      width: 18%;
       text-align: right;
 
       i {
-        width: 19%;
+        width: 22%;
+      }
+
+      a {
+        color: #fff;
       }
     }
   }

@@ -1,7 +1,9 @@
-<div class="dots-icon" title="App Launcher">
-  <i class="fa fa-ellipsis-v"></i>
-  <i class="fa fa-ellipsis-v"></i>
-  <i class="fa fa-ellipsis-v"></i>
+<div class="launcher-icon">
+  <div class="dots-icon" title="App Launcher">
+    <i class="fa fa-ellipsis-v"></i>
+    <i class="fa fa-ellipsis-v"></i>
+    <i class="fa fa-ellipsis-v"></i>
+  </div>
 </div>
 <div class="center-top-nav-container">
   <div class="to-do">
@@ -9,11 +11,12 @@
   </div>
   <app-search-bar></app-search-bar>
   <div class="icon-right">
-    <i class="fa fa-cog" title="Settings"></i>
-    <i class="fa fa-question" title="Help & feedback"></i>
-    <i class="fa fa-bullhorn" title="What's new"></i>
+    <a routerLink="/settings"><i class="fa fa-cog" title="Settings"></i></a>
+    <a routerLink="/help"><i class="fa fa-question" title="Help & feedback"></i></a>
+    <a routerLink="/announcement"><i class="fa fa-bullhorn" title="What's new"></i></a>
   </div>
 </div>
 <div class="login" title="Account Manager">
   <i class='fa fa-user-circle'></i>
 </div>
+<router-outlet></router-outlet>
