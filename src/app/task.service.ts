@@ -8,15 +8,17 @@ import { Constant } from './constant';
   providedIn: 'root'
 })
 
-export class CommonService {
+export class TaskService {
 
-  private CategoryMenu: Menu[] = [
+  private categoryMenu: Menu[] = [
     { id: 1, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false },
     { id: 2, name: 'Important', icon: 'fa fa-star-o', isLastDefaultCategory: false },
     { id: 3, name: 'Planned', icon: 'fa fa-calendar-o', isLastDefaultCategory: false },
     { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
     { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
   ];
+
+  //private categoryMenu: Menu[] = [];
   private taskList: Task[] = [];
   private task: Task = {
     id: 0,
@@ -27,7 +29,7 @@ export class CommonService {
     categoryIds: [],
     note: ''
   };
-  private selectedCategory = new BehaviorSubject(this.CategoryMenu[0]);
+  private selectedCategory = new BehaviorSubject(this.categoryMenu[0]);
   public categoryDetails$ = this.selectedCategory.asObservable();
   private selectedTask = new BehaviorSubject(this.task);
   public selectedTask$ = this.selectedTask.asObservable();
@@ -36,15 +38,22 @@ export class CommonService {
   public leftContainer = 'left-container';
   public centerContainer = 'center-container';
   public rightContainer = 'right-container';
+  public viewLeftContainer = true;
+  public viewRightContainer = false;
+  public applyClass = this.constant.NORMAL_SCREEN;
 
   constructor() { }
 
   getCategories(): Menu[] {
-    return this.CategoryMenu;
+    return this.categoryMenu;
   }
 
+  // setCategories(category: Menu) {
+  //   this.categoryMenu.push(category);
+  // }
+
   addCategory(category: Menu): void {
-    this.CategoryMenu.push(category);
+    this.categoryMenu.push(category);
   }
 
   setSelectedCategory(category: Menu): void {
@@ -98,20 +107,39 @@ export class CommonService {
     }
   }
 
-  toggleContent() {
-    if (this.leftContainer === 'left-container') {
-      this.leftContainer = 'hide-left-container';
-      this.centerContainer = 'full-screen-view';
-    } else if (this.centerContainer === 'full-screen-view') {
-      this.leftContainer = 'left-container';
-      this.centerContainer = 'center-container';
+  toggleContent(): void {
+    if (this.viewLeftContainer === true) {
+      this.viewLeftContainer = false;
+      if (this.viewRightContainer === false) {
+        this.applyClass = this.constant.FULL_SCREEN;
+      } else {
+        this.applyClass = this.constant.LEFT_SCREEN;
+      }
+    } else {
+      this.viewLeftContainer = true;
+      if (this.viewRightContainer === false) {
+        this.applyClass = this.constant.NORMAL_SCREEN;
+      } else {
+        this.applyClass = this.constant.CENTER_SCREEN;
+      }
     }
   }
 
-  toggleRightContent() {
-    if (this.centerContainer === 'center-container') {
-      this.rightContainer = 'show-block';
-      this.centerContainer = 'center-container';
+  rightContainerView(): void {
+    this.viewRightContainer = true;
+    if (this.viewLeftContainer === true) {
+      this.applyClass = this.constant.CENTER_SCREEN;
+    } else {
+      this.applyClass = this.constant.LEFT_SCREEN;
+    }
+  }
+
+  hideRightContainer(): void {
+    this.viewRightContainer = false;
+    if (this.viewLeftContainer === true) {
+      this.applyClass = this.constant.NORMAL_SCREEN;
+    } else {
+      this.applyClass = this.constant.FULL_SCREEN;
     }
   }
 

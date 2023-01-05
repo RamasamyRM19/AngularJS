@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Task } from './bottom-center-bar/task';
-import { CommonService } from '../common.service';
+import { TaskService } from '../task.service';
+import { Menu } from './bottom-left-bar/menu';
+import { Constant } from '../constant';
 
 @Component({
   selector: 'app-bottom-component',
@@ -12,10 +14,13 @@ export class BottomComponent {
   public categoryName: string = "";
   public categoryIcon?: string;
   public selectedTask!: Task;
+  public categoryList!: Menu[];
+  public constant = new Constant();
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
-  constructor(public commonService: CommonService) {
+  constructor(public commonService: TaskService) {
   }
 
   getCategory(categoryName: string) {
@@ -23,8 +28,8 @@ export class BottomComponent {
     this.categoryName = categoryName.split("/")[1];
   }
 
-  getSelectedTask(task:Task) {
-    this.selectedTask = task;
+  getCategoryList(categories: Menu[]): void {
+    this.categoryList = categories;
   }
 
 }

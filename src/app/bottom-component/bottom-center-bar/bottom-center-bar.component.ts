@@ -1,6 +1,6 @@
 import { Component, DoCheck, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from './task';
-import { CommonService } from 'src/app/common.service';
+import { TaskService } from 'src/app/task.service';
 import { Menu } from '../bottom-left-bar/menu';
 import { Constant } from 'src/app/constant';
 
@@ -13,10 +13,10 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
 
   public currentDate = new Date();
   public taskName: string = "";
-  public taskItem: Task[] = this.commonService.getTasks();
+  public taskItem: Task[] = this.taskService.getTasks();
   //public tasks: Task[] = [];
   public task?: Task;
-  public tasks: Task[] = this.commonService.getTasks();
+  public tasks: Task[] = this.taskService.getTasks();
   public pendingTasks: Task[] = [];
   public categoryItem?: boolean;
   public isImportantTask = false;
@@ -27,16 +27,16 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
   public categoryName = "";
   public categoryIcon = "";
 
+  constructor(public taskService: TaskService) {
+  }
+
   ngOnInit(): void {
     this.categoryIcon = "fa fa-sun-o";
     this.renderTask();
-    this.commonService.categoryDetails$.subscribe(iconOfCategory => this.categoryIcon = iconOfCategory.icon);
-    this.commonService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory.name);
-    this.commonService.categoryDetails$.subscribe(category => this.selectedCategory = category);
+    this.taskService.categoryDetails$.subscribe(iconOfCategory => this.categoryIcon = iconOfCategory.icon);
+    this.taskService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory.name);
+    this.taskService.categoryDetails$.subscribe(category => this.selectedCategory = category);
     this.renderCompletedTask();
-  }
-
-  constructor(private commonService: CommonService) {
   }
 
   ngDoCheck(): void {
@@ -58,7 +58,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         this.isImportantTask = false;
       }
       task = {
-        id: this.commonService.getTasks().length,
+        id: this.taskService.getTasks().length,
         name: this.taskName,
         subName: 'Tasks',
         isImportant: this.isImportantTask,
@@ -67,7 +67,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         note: "",
       }
       console.log(task.id);
-      this.commonService.addTask(task);
+      this.taskService.addTask(task);
       this.taskName = "";
     }
     console.log(this.tasks);
@@ -117,6 +117,10 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         }
       });
     }
+  }
+
+  toggleContent(): void {
+    this.taskService.toggleContent();
   }
 
 }

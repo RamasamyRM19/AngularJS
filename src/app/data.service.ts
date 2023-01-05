@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { Menu } from './bottom-component/bottom-left-bar/menu';
 
 @Injectable({
@@ -8,18 +8,25 @@ import { Menu } from './bottom-component/bottom-left-bar/menu';
 })
 export class DataService {
 
-  baseUrl: string = "http://localhost:3000";
+  baseUrl = "http://localhost:8080/todo/"
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
-  // get_categories(): Observable<{ id: number; title: string }[]> {
-  //   //return this.httpClient.get(this.baseUrl + '/categories');
-  //   return this.httpClient.get('http://localhost:3000/categories');
+  getCategories(): Observable<Object> {
+    return this.http.get(this.baseUrl + "categories");
+    //console.log(this.baseUrl+ "categories");
+  }
+
+  postCategories(category: Menu): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(category);
+    //console.log(body)
+    return this.http.post<any>(this.baseUrl + "category", body,{'headers':headers});
+  }
+
+  // public saveUser(category: Menu): Observable<any> {
+  //   const url = 'https://reqres.in/api/users';
+  //   return this.http.post<any>(url, category);
   // }
-
-  public getCategories(): Observable<Menu> {
-    const url = 'http://localhost:3000/categories';
-    return this.httpClient.get<Menu>(url);
-}
-
 }

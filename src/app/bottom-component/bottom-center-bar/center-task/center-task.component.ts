@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../task';
-import { CommonService } from 'src/app/common.service';
+import { TaskService } from 'src/app/task.service';
+import { Constant } from 'src/app/constant';
 
 @Component({
   selector: 'app-center-task',
@@ -10,12 +11,15 @@ import { CommonService } from 'src/app/common.service';
 export class CenterTaskComponent {
 
   @Input() taskList!: Task[];
+  public constant = new Constant();
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
-  constructor(public commonService: CommonService) { }
+  constructor(public taskService: TaskService) { }
 
   getSelectedTask(task:Task): void {
-    this.commonService.setTasks(task);
+    this.taskService.setTasks(task);
+    //this.taskService.rightContainerView();
   }
 }
