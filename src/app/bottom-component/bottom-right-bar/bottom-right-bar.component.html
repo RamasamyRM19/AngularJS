@@ -1,15 +1,15 @@
 <div class="section task-title" id="task-title-section">
   <div class="section-icon">
     <i [ngClass]="selectedTask.isCompleted ? 'fa-solid fa-circle-check': 'fa-regular fa-circle'"
-      (mouseover)="commonService.mouseOverFunction($event)" (mouseout)="commonService.mouseOutFunction($event)"
-      (click)="commonService.completedTask(selectedTask)"></i>
+      (mouseover)="taskService.mouseOverFunction($event)" (mouseout)="taskService.mouseOutFunction($event)"
+      (click)="taskService.completedTask(selectedTask)"></i>
   </div>
   <div class="section-name" id="title-content" [class.strike-task]="selectedTask.isCompleted">
     {{selectedTask.name}}
   </div>
   <div class="section-icon">
     <i [ngClass]="selectedTask.isImportant ? 'fa fa-star' : 'fa fa-star-o'"
-      (click)="commonService.clickToImportant(selectedTask)"></i>
+      (click)="taskService.clickToImportant(selectedTask)"></i>
   </div>
 </div>
 
@@ -66,7 +66,7 @@
   </div>
 
   <div class="section">
-    <textarea name="note" id="note" class="note-input" placeholder="Add note"></textarea>
+    <textarea name="note" id="note" [(ngModel)]="note" class="note-input" placeholder="Add note" (keypress)="addNotes()" value={{selectedTask.note}}></textarea>
   </div>
 </div>
 
@@ -74,9 +74,10 @@
 
 <div class="bottom-section">
   <div class="section-icon">
-    <i class="fa-solid fa-right-from-bracket" id="exit-icon"></i>
+    <i class="fa-solid fa-right-from-bracket" id="exit-icon" (click)="hideRightContainer()"></i>
   </div>
   <div class="section-name">
+    <p>Created Today</p>
   </div>
   <div class="section-icon">
     <i class="fa-solid fa-trash"></i>

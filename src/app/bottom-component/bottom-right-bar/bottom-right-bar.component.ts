@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../bottom-center-bar/task';
-import { CommonService } from 'src/app/common.service';
+import { TaskService } from 'src/app/task.service';
 
 @Component({
   selector: 'app-bottom-right-bar',
@@ -9,20 +9,22 @@ import { CommonService } from 'src/app/common.service';
 })
 export class BottomRightBarComponent implements OnInit {
  
-  @Input() selectedTask!: Task;
+ public selectedTask!: Task;
+
+ public note = "";
   
   ngOnInit(): void {
-    this.selectedTask = {
-      id: 0,
-      name: '',
-      subName: 'Tasks',
-      isImportant: false,
-      isCompleted: false,
-      categoryIds: [],
-      note: ''
-    };
+    this.taskService.selectedTask$.subscribe(task => this.selectedTask = task);
   }
 
-  constructor(public commonService:CommonService) {}
+  constructor(public taskService:TaskService) {}
+
+  hideRightContainer(): void {
+    this.taskService.hideRightContainer();
+  }
+
+  addNotes(): void {
+    this.selectedTask.note = this.note;
+  }
 
 }

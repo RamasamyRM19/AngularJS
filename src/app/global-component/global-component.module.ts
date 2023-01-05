@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { HelpComponent } from './help/help.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SettingsComponent } from './settings/settings.component';
     SearchBarComponent,
     AnnouncementComponent,
     HelpComponent,
-    SettingsComponent
+    SettingsComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

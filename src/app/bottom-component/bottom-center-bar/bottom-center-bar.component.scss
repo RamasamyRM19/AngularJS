@@ -23,7 +23,10 @@ $primary-color2: #dedede;
 
 .container .bottom-nav-container {
 
-  .center-container, .full-screen-view {
+  .center-container,
+  .full-screen-view,
+  .center-container-shrink,
+  .center-container-left-view {
     background-color: $primary-color;
     min-height: 35.7rem;
     width: 78.3%;
@@ -119,7 +122,7 @@ $primary-color2: #dedede;
       .content-three {
         border-radius: 6px;
         width: 100%;
-        box-shadow: 0 4px 6px -6px $primary-color1;
+       // box-shadow: 0 4px 6px -6px $primary-color1;
         margin-top: 11px;
       }
 
@@ -173,7 +176,8 @@ $primary-color2: #dedede;
 
       }
 
-      .content-three .middle-content1 {
+      .content-three .middle-content1,
+      .task-center {
         background-color: $seconday-color1;
         padding: 10px 3.5px 6px 25px;
         border-bottom: 1px solid $seconday-color;
@@ -222,16 +226,15 @@ $primary-color2: #dedede;
   .full-screen-view {
     width: 99.9%;
   }
-}
 
-.striked-task {
-  text-decoration: line-through;
-}
+  .center-container-shrink {
+    width: calc(100vw - (22.63vw + 19.9vw));
+  }
 
-.center-container1 {
-  width: 52%;
+  .center-container-left-view {
+    width: 52%;
+  }
 }
-
 
 .container .bottom-nav-container .center-container .center .content-three {
   height: auto;
@@ -277,8 +280,6 @@ $primary-color2: #dedede;
       font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
       background-color: transparent;
     }
-
-
   }
 
   .completed-hide {
@@ -302,4 +303,12 @@ $primary-color2: #dedede;
     }
   }
 
+}
+
+.task-center {
+  width: 95%;
+}
+
+.striked-task {
+  text-decoration: line-through;
 }

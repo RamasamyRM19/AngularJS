@@ -11,132 +11,145 @@ $quaternary-color1: #e7e6e5;
 
 $primary-color2: #2564cf;
 
-.container .bottom-nav-container .right-container,
-.container .bottom-nav-container .show-block {
-  display: none;
-  background-color: $primary-color;
-  width: 25.5%;
-  height: 36rem;
-  border-left: 0.5px solid $seconday-color;
-  box-shadow: -4px 5px 20px -7px $tertiary-color;
-  vertical-align: top;
+.bottom-nav-container {
 
-  .middle-sections {
-    overflow-y: auto;
-    max-height: 27rem;
-    color: $quaternary-color;
-    font-size: 14px;
+  .right-container,
+  .hide-right-container-block {
+    display: inline-block;
+    background-color: $primary-color;
+    width: 25.5%;
+    height: 36rem;
+    border-left: 0.5px solid $seconday-color;
+    box-shadow: -4px 5px 20px -7px $tertiary-color;
+    vertical-align: top;
 
-    .conditions-section {
+    .middle-sections {
+      overflow-y: auto;
+      max-height: 27rem;
+      color: $quaternary-color;
+      font-size: 14px;
+
+      .conditions-section {
+        background-color: $primary-color1;
+        width: 85%;
+        margin: 0 auto 10px 1.7rem;
+        border-radius: 4px;
+
+        .section {
+          margin: 0 auto 0px 0rem;
+          padding-right: 2.65rem;
+          border-bottom: 1px solid $seconday-color1;
+        }
+      }
+    }
+
+    .section {
+      line-height: 3.3;
       background-color: $primary-color1;
       width: 85%;
       margin: 0 auto 10px 1.7rem;
       border-radius: 4px;
 
-      .section {
-        margin: 0 auto 0px 0rem;
-        padding-right: 2.65rem;
-        border-bottom: 1px solid $seconday-color1;
+      div {
+        display: inline-block;
+      }
+
+      .note-input {
+        border: none;
+        outline: none;
+        width: 100%;
+        resize: none;
+        height: 7rem;
+        font-size: 16px;
+      }
+
+      &:last-child {
+        height: 7rem;
       }
     }
-  }
 
-  .section {
-    line-height: 3.3;
-    background-color: $primary-color1;
-    width: 85%;
-    margin: 0 auto 10px 1.7rem;
-    border-radius: 4px;
+    .bottom-section {
+      background-color: $primary-color;
+      bottom: 0;
+      line-height: 3.5;
+      text-align: center;
+      width: 90%;
+      margin: 0 auto 0px 1rem;
 
-    div {
-      display: inline-block;
+      div {
+        display: inline-block;
+      }
     }
 
-    .note-input {
-      border: none;
-      outline: none;
-      width: 100%;
-      resize: none;
-      height: 7rem;
-      font-size: 16px;
+    .section.task-title:first-child {
+      margin-top: 10px;
+      margin-bottom: 0;
+      position: sticky;
+      top: 10px;
+      width: 18rem;
     }
 
-    &:last-child {
-      height: 7rem;
-    }
-  }
-
-  .bottom-section {
-    background-color: $primary-color;
-    bottom: 0;
-    line-height: 3.5;
-    text-align: center;
-    width: 90%;
-    margin: 0 auto 0px 1rem;
-
-    div {
-      display: inline-block;
-    }
-  }
-
-  .section.task-title:first-child {
-    margin-top: 10px;
-    margin-bottom: 0;
-    position: sticky;
-    top: 10px;
-    width: 18rem;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  ul.section {
-    li {
-      border-bottom: 0.5px solid $seconday-color;
+    ul {
+      list-style: none;
     }
 
-    li:last-child {
-      border-bottom: none;
+    ul.section {
+      li {
+        border-bottom: 0.5px solid $seconday-color;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
     }
-  }
 
-  .section-icon {
-    width: 15%;
-    text-align: center;
-  }
-
-  .section-name {
-    width: 83%;
-  }
-
-  .section,
-  .conditions-section div {
-
-    &:hover {
-      background-color: $tertiary-color1;
-      cursor: pointer;
+    .section-icon {
+      width: 15%;
+      text-align: center;
     }
+
+    .section-name {
+      width: 83%;
+    }
+
+    .section,
+    .conditions-section div {
+
+      &:hover {
+        background-color: $tertiary-color1;
+        cursor: pointer;
+      }
+    }
+
+    .line {
+      margin: 9px 16px;
+      height: 1px;
+      background-color: $quaternary-color1;
+      list-style-type: none;
+    }
+
+    .section.section.task-title .section-name,
+    .bottom-section .section-name {
+      width: 66%;
+    }
+
+    .bottom-section .section-name {
+      font-size: 12px;
+      margin-top: 0.3rem;
+      color: #6e6868;
+    }
+
   }
 
-  .line {
-    margin: 9px 16px;
-    height: 1px;
-    background-color: $quaternary-color1;
-    list-style-type: none;
+  .hide-right-container-block {
+    display: none;
   }
-
-  .section.section.task-title .section-name,
-  .bottom-section .section-name {
-    width: 66%;
-  }
-
 }
 
-.show-block {
-  display: inline-block;
-  width: 26%;
-}
+// .show-block {
+//   display: inline-block;
+//   width: 26%;
+// }
 
 .task-title i {
   color: $primary-color2;

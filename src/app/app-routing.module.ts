@@ -4,12 +4,16 @@ import { SettingsComponent } from './global-component/settings/settings.componen
 import { HelpComponent } from './global-component/help/help.component';
 import { AnnouncementComponent } from './global-component/announcement/announcement.component';
 import { BottomComponent } from './bottom-component/bottom.component';
+import { ProfileComponent } from './global-component/profile/profile.component';
+import { PageNotFoundComponent } from './global-component/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: BottomComponent},
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'announcement', component: AnnouncementComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({

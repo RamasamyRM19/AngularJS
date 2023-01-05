@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Menu } from './menu';
-import { CommonService } from 'src/app/common.service';
+import { TaskService } from 'src/app/task.service';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-bottom-left-bar',
@@ -10,14 +11,18 @@ import { CommonService } from 'src/app/common.service';
 
 export class BottomLeftBarComponent {
 
-  public CategoryMenu: Menu[] = this.commonService.getCategories();
+  public CategoryMenu: Menu[] = this.taskService.getCategories();
   public selectedCategory?: string;
   public category?: Menu;
   public categoryItem: string = "";
+  categories: any;
+  //user!: Menu;
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getCategories();
+  }
 
-  constructor(private commonService: CommonService) {
+  constructor(private taskService: TaskService, private dataService: DataService) {
   }
 
   addNewCategoryMenu(): void {
@@ -35,10 +40,20 @@ export class BottomLeftBarComponent {
       icon: "fa fa-list-ul",
       isLastDefaultCategory: false
     }
-    this.commonService.addCategory(category);
+    this.taskService.addCategory(category);
     this.selectedCategory = this.categoryItem;
     this.onSelected(category);
     this.categoryItem = "";
+    // this.dataService.postCategories(category).subscribe((response: any) => {
+    //   console.log(response);
+    // });
+    this.dataService.postCategories(category)
+      .subscribe(data => {
+        console.log(data)
+        this.dataService.getCategories();
+        //this.refreshPeople();
+      })
+    this.getCategories();
   }
 
   countExistingCategory(name: String) {
@@ -52,7 +67,7 @@ export class BottomLeftBarComponent {
   }
 
   onSelected(category: Menu) {
-    this.commonService.setSelectedCategory(category);
+    this.taskService.setSelectedCategory(category);
   }
 
   // renderCategoryTasks() {
@@ -60,7 +75,15 @@ export class BottomLeftBarComponent {
   // }
 
   toggleContent() {
-    this.commonService.toggleContent();
+    this.taskService.toggleContent();
+  }
+
+  getCategories() {
+    this.dataService.getCategories()
+      .subscribe(response => {
+        this.categories = response;
+        console.log(response);
+      });
   }
 
 }
