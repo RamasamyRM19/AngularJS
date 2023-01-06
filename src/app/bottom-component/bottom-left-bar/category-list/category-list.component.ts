@@ -14,24 +14,19 @@ export class CategoryListComponent {
 
   public menu: Menu[] = this.taskService.getCategories();
   public category!: Menu;
-
-  private categoryMenu: Menu[] = [
-    { id: 1, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false },
-    { id: 2, name: 'Important', icon: 'fa fa-star-o', isLastDefaultCategory: false },
-    { id: 3, name: 'Planned', icon: 'fa fa-calendar-o', isLastDefaultCategory: false },
-    { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
-    { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
-  ];
+  categories: any;
+  private categoryMenu: Menu[] = [];
 
   //public category: Menu[] = this.taskService.setCategories(this.categoryMenu);
 
   @Input() public selectedCategoryName?: String;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.menu = this.taskService.getCategories();
+    //this.menu = this.taskService.getCategories();
     this.taskService.categoryDetails$.subscribe(category => this.selectedCategoryName = category.name);
+    this.getCategories();
 
     // this.dataService.postCategories(this.category)
     //   .subscribe(data => {
@@ -42,6 +37,16 @@ export class CategoryListComponent {
   onSelectCategory(category: Menu): void {
     this.selectedCategoryName = category.name;
     this.taskService.setSelectedCategory(category);
+  }
+
+  getCategories() {
+    this.dataService.getCategories()
+      .subscribe((response:any) => {
+        this.menu = response;
+        this.taskService.categoryMenu = this.menu;
+        console.log(response);
+        this.taskService.setCategories(this.menu);
+      });
   }
 
 }

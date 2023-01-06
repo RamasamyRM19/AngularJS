@@ -3,6 +3,7 @@ import { Task } from './task';
 import { TaskService } from 'src/app/task.service';
 import { Menu } from '../bottom-left-bar/menu';
 import { Constant } from 'src/app/constant';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-bottom-center-bar',
@@ -27,7 +28,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
   public categoryName = "";
   public categoryIcon = "";
 
-  constructor(public taskService: TaskService) {
+  constructor(public taskService: TaskService, public dataService: DataService) {
   }
 
   ngOnInit(): void {
@@ -58,7 +59,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         this.isImportantTask = false;
       }
       task = {
-        id: this.taskService.getTasks().length,
+        id: 0,
         name: this.taskName,
         subName: 'Tasks',
         isImportant: this.isImportantTask,
@@ -69,6 +70,10 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
       console.log(task.id);
       this.taskService.addTask(task);
       this.taskName = "";
+      this.dataService.postTasks(task)
+      .subscribe(() => {
+        this.dataService.getTasks();
+      });
     }
     console.log(this.tasks);
   }

@@ -15,11 +15,8 @@ export class BottomLeftBarComponent {
   public selectedCategory?: string;
   public category?: Menu;
   public categoryItem: string = "";
-  categories: any;
-  //user!: Menu;
 
   ngOnInit() {
-    this.getCategories();
   }
 
   constructor(private taskService: TaskService, private dataService: DataService) {
@@ -35,7 +32,7 @@ export class BottomLeftBarComponent {
       this.categoryItem = this.categoryItem + " (" + count + ")";
     }
     let category = {
-      id: this.CategoryMenu.length + 1,
+      id: 0,
       name: this.categoryItem,
       icon: "fa fa-list-ul",
       isLastDefaultCategory: false
@@ -49,11 +46,10 @@ export class BottomLeftBarComponent {
     // });
     this.dataService.postCategories(category)
       .subscribe(data => {
-        console.log(data)
+        console.log(category)
         this.dataService.getCategories();
         //this.refreshPeople();
-      })
-    this.getCategories();
+      });
   }
 
   countExistingCategory(name: String) {
@@ -76,14 +72,6 @@ export class BottomLeftBarComponent {
 
   toggleContent() {
     this.taskService.toggleContent();
-  }
-
-  getCategories() {
-    this.dataService.getCategories()
-      .subscribe(response => {
-        this.categories = response;
-        console.log(response);
-      });
   }
 
 }
