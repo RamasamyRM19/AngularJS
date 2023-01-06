@@ -10,16 +10,17 @@ import { Constant } from './constant';
 
 export class TaskService {
 
-  private categoryMenu: Menu[] = [
-    { id: 1, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false },
-    { id: 2, name: 'Important', icon: 'fa fa-star-o', isLastDefaultCategory: false },
-    { id: 3, name: 'Planned', icon: 'fa fa-calendar-o', isLastDefaultCategory: false },
-    { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
-    { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
-  ];
+  // private categoryMenu: Menu[] = [
+  //   { id: 1, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false },
+  //   { id: 2, name: 'Important', icon: 'fa fa-star-o', isLastDefaultCategory: false },
+  //   { id: 3, name: 'Planned', icon: 'fa fa-calendar-o', isLastDefaultCategory: false },
+  //   { id: 4, name: 'Assigned to me', icon: 'fa fa-user-o', isLastDefaultCategory: false },
+  //   { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
+  // ];
 
-  //private categoryMenu: Menu[] = [];
-  private taskList: Task[] = [];
+  public categoryMenu: Menu[] = [];
+
+  public taskList: Task[] = [];
   private task: Task = {
     id: 0,
     name: '',
@@ -29,8 +30,10 @@ export class TaskService {
     categoryIds: [],
     note: ''
   };
-  private selectedCategory = new BehaviorSubject(this.categoryMenu[0]);
+  private initialCategory = { id: 0, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false };
+  private selectedCategory = new BehaviorSubject(this.initialCategory);
   public categoryDetails$ = this.selectedCategory.asObservable();
+  //private initialTask = { id: 0, name: '', subName: 'Tasks', isImportant: false, isCompleted: false, categoryIds: [1], note: '' };
   private selectedTask = new BehaviorSubject(this.task);
   public selectedTask$ = this.selectedTask.asObservable();
   public constant = new Constant();
@@ -48,9 +51,9 @@ export class TaskService {
     return this.categoryMenu;
   }
 
-  // setCategories(category: Menu) {
-  //   this.categoryMenu.push(category);
-  // }
+  setCategories(categories:Menu[]) {
+    this.categoryMenu = categories;
+  }
 
   addCategory(category: Menu): void {
     this.categoryMenu.push(category);
@@ -64,8 +67,16 @@ export class TaskService {
     return this.selectedCategory;
   }
 
-  setTasks(task: Task) {
+  setSelectedTasks(task: Task): void {
     this.selectedTask.next(task);
+  }
+
+  getSelectedTasks() {
+    return this.selectedTask;
+  }
+
+  setTasks(task:Task[]) {
+    this.taskList = task;
   }
 
   getTasks(): Task[] {

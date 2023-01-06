@@ -2,8 +2,8 @@ export interface Task {
   id: number;
   name: string;
   subName: string;
-  isImportant:Boolean;
-  isCompleted:Boolean;
+  isImportant:boolean;
+  isCompleted:boolean;
   categoryIds: number[];
   note: string;
 }
