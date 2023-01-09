@@ -5,10 +5,10 @@
   width: 100%;
   //display: none;
 
-  div {
-    display: inline-block;
-    vertical-align: top;
-  }
+  //div {
+    //display: inline-block;
+    //vertical-align: top;
+  //}
 
 
   /*---------------------------- LEFT CONTAINER -------------------------------*/
@@ -19,6 +19,8 @@
     height: 35rem;
     width: 18.2rem;
     font-size: 14px;
+    vertical-align: top;
+    display: inline-block;
 
     ::-webkit-scrollbar {
       width: 8px;
@@ -138,6 +140,10 @@
       left: 0;
       padding: 15px 15px 15px 0px;
       text-align: center;
+
+      div {
+        display: inline-block;
+      }
 
       i {
         width: 3.5rem;

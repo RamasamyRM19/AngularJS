@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Menu } from './menu';
 import { TaskService } from 'src/app/task.service';
 import { DataService } from 'src/app/data.service';
+import { CategoryListComponent } from './category-list/category-list.component';
 
 @Component({
   selector: 'app-bottom-left-bar',
@@ -15,8 +16,10 @@ export class BottomLeftBarComponent {
   public selectedCategory?: string;
   public category?: Menu;
   public categoryItem: string = "";
+  // @ViewChild(CategoryListComponent) child !: CategoryListComponent;
+  // public addedCategory!: Menu;
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   constructor(private taskService: TaskService, private dataService: DataService) {

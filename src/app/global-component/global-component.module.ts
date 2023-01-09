@@ -26,7 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
   exports: [
     GlobalComponentComponent,
     NavBarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    AnnouncementComponent,
+    HelpComponent,
+    SettingsComponent,
+    ProfileComponent
   ]
 })
 export class GlobalComponentModule { }

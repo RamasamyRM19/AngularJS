@@ -15,14 +15,14 @@ export class CenterTaskComponent {
   public constant = new Constant();
 
   ngOnInit(): void {
-    this.getTasks();
+    //this.getTasks();
   }
 
   constructor(public taskService: TaskService, private dataService: DataService) { }
 
   getSelectedTask(task:Task): void {
     this.taskService.setSelectedTasks(task);
-    //this.taskService.rightContainerView();
+    this.taskService.rightContainerView();
   }
 
   getTasks() {

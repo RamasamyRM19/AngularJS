@@ -1,3 +1,56 @@
 .lineThrough {
   text-decoration: line-through;
 }
+
+$primary-color: #faf9f8;
+$seconday-color: #e7e6e5;
+$tertiary-color: #858383;
+$quaternary-color: grey;
+
+$primary-color1: #a5a5a5;
+$seconday-color1: #fff;
+$tertiary-color1: #a19d9c;
+$quaternary-color1: #2564cf;
+
+$primary-color2: #dedede;
+
+.middle-content1,
+.task-center {
+  background-color: $seconday-color1;
+  padding: 10px 3.5px 6px 25px;
+  border-bottom: 1px solid $seconday-color;
+  width: 62.4rem;
+  margin-top: 0.5rem;
+  border-radius: 7px;
+  box-shadow: 0 4px 6px -6px #a5a5a5;
+
+  div {
+    display: inline-block;
+  }
+
+  .task {
+    width: 93%;
+
+    .new {
+      font-size: 14px;
+    }
+  }
+
+  .circle,
+  .star {
+    padding-top: 6px;
+  }
+
+}
+
+.content-two .middle-content .circle,
+.middle-content1 .circle {
+  width: 3%;
+}
+
+.content-two .middle-content .circle i,
+.content-three .middle-content1 .circle i,
+.content-two .middle-content .addTask ::placeholder,
+.content-three .middle-content1 .star i {
+  color: $quaternary-color1;
+}

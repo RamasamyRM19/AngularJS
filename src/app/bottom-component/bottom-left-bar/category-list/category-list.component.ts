@@ -19,7 +19,7 @@ export class CategoryListComponent {
 
   //public category: Menu[] = this.taskService.setCategories(this.categoryMenu);
 
-  @Input() public selectedCategoryName?: String;
+  public selectedCategoryName?: String;
 
   constructor(private taskService: TaskService, private dataService: DataService) { }
 

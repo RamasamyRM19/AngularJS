@@ -3,6 +3,7 @@ import { Menu } from './bottom-component/bottom-left-bar/menu';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Task } from './bottom-component/bottom-center-bar/task';
 import { Constant } from './constant';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,8 @@ export class TaskService {
   //   { id: 5, name: 'Tasks', icon: 'fa fa-home', isLastDefaultCategory: true }
   // ];
 
-  public categoryMenu: Menu[] = [];
-
-  public taskList: Task[] = [];
+  public categoryMenu: Menu[] = []; /*---------*/
+  public taskList: Task[] = []; /*---------*/
   private task: Task = {
     id: 0,
     name: '',
@@ -29,23 +29,32 @@ export class TaskService {
     isCompleted: false,
     categoryIds: [],
     note: ''
-  };
+  }; /*---------*/
   private initialCategory = { id: 0, name: 'My Day', icon: 'fa fa-sun-o', isLastDefaultCategory: false };
   private selectedCategory = new BehaviorSubject(this.initialCategory);
   public categoryDetails$ = this.selectedCategory.asObservable();
   //private initialTask = { id: 0, name: '', subName: 'Tasks', isImportant: false, isCompleted: false, categoryIds: [1], note: '' };
   private selectedTask = new BehaviorSubject(this.task);
   public selectedTask$ = this.selectedTask.asObservable();
-  public constant = new Constant();
+  public constant = new Constant(); /*---------*/
 
   public leftContainer = 'left-container';
   public centerContainer = 'center-container';
   public rightContainer = 'right-container';
   public viewLeftContainer = true;
-  public viewRightContainer = false;
+  public viewRightContainer = true;
   public applyClass = this.constant.NORMAL_SCREEN;
 
-  constructor() { }
+  private retrievedTasks = new Subject<Task[]>();
+  public retrievedTasks$ = this.retrievedTasks.asObservable();
+
+  private getTask = new Subject<Task[]>();
+  public getTask$ = this.getTask.asObservable();
+
+  constructor(private dataService: DataService) { 
+    this.retrieveTasks();
+   this.viewRightContainer = false;
+  }
 
   getCategories(): Menu[] {
     return this.categoryMenu;
@@ -63,7 +72,7 @@ export class TaskService {
     this.selectedCategory.next(category);
   }
 
-  getSelectedCategory() {
+  getSelectedCategory(): BehaviorSubject<Menu> {
     return this.selectedCategory;
   }
 
@@ -79,6 +88,13 @@ export class TaskService {
     this.taskList = task;
   }
 
+  retrieveTasks() {
+    this.dataService.getTasks().subscribe((tasks: any) => {
+      this.taskList = tasks;
+      this.retrievedTasks.next(tasks);
+    })
+  }
+
   getTasks(): Task[] {
     return this.taskList;
   }
@@ -87,13 +103,13 @@ export class TaskService {
     this.taskList.unshift(task);
   }
 
-  mouseOverFunction(event: any) {
+  mouseOverFunction(event: any): void {
     if (event.target.className === "fa-regular fa-circle") {
       event.target.className = "fa-regular fa-circle-check";
     }
   }
 
-  mouseOutFunction(event: any) {
+  mouseOutFunction(event: any): void {
     if (event.target.className === "fa-regular fa-circle-check") {
       event.target.className = "fa-regular fa-circle";
     }
@@ -107,7 +123,11 @@ export class TaskService {
       task.isImportant = false;
       let index = task.categoryIds.indexOf(this.constant.IMPORTANT_ID);
       task.categoryIds.splice(index, 1);
+      this.dataService.postTasks(task);
     }
+    this.dataService.postTasks(task).subscribe(() => {
+      this.retrieveTasks();
+    })
   }
 
   completedTask(task: Task) {
@@ -116,6 +136,9 @@ export class TaskService {
     } else {
       task.isCompleted = true;
     }
+    this.dataService.postTasks(task).subscribe(() => {
+      this.retrieveTasks();
+    })
   }
 
   toggleContent(): void {

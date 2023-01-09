@@ -27,16 +27,17 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
   public constant = new Constant();
   public categoryName = "";
   public categoryIcon = "";
+  public categoryList: Menu[] = this.taskService.categoryMenu;
 
   constructor(public taskService: TaskService, public dataService: DataService) {
   }
 
   ngOnInit(): void {
-    this.categoryIcon = "fa fa-sun-o";
-    this.renderTask();
     this.taskService.categoryDetails$.subscribe(iconOfCategory => this.categoryIcon = iconOfCategory.icon);
     this.taskService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory.name);
     this.taskService.categoryDetails$.subscribe(category => this.selectedCategory = category);
+    this.taskService.retrievedTasks$.subscribe(tasks => this.tasks = tasks);
+    this.renderTask();
     this.renderCompletedTask();
   }
 
@@ -46,6 +47,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
   }
 
   addNewTask() {
+    this.categoryList = this.taskService.getCategories();
     if (this.taskName.length > 0) {
       let task: Task;
       let selectedCategoryId = this.selectedCategory.id;
@@ -67,12 +69,12 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
         categoryIds: categoryId,
         note: "",
       }
-      console.log(task.id);
+      console.log(task);
       this.taskService.addTask(task);
       this.taskName = "";
       this.dataService.postTasks(task)
       .subscribe(() => {
-        this.dataService.getTasks();
+        this.taskService.getTasks();
       });
     }
     console.log(this.tasks);
@@ -80,7 +82,7 @@ export class BottomCenterBarComponent implements OnInit, DoCheck {
 
   renderTask() {
     this.pendingTasks = [];
-    this.taskItem.forEach(task => {
+    this.tasks.forEach(task => {
       if (!task.isCompleted) {
         task.categoryIds.forEach(categoryId => {
           if (categoryId === this.selectedCategory.id) {

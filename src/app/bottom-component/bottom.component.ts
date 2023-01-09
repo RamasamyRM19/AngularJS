@@ -13,7 +13,6 @@ export class BottomComponent {
 
   public categoryName: string = "";
   public categoryIcon?: string;
-  public selectedTask!: Task;
   public categoryList!: Menu[];
   public constant = new Constant();
 
