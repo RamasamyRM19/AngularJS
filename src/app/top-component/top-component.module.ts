@@ -1,36 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GlobalComponentComponent } from './global-component.component';
+import { TopComponent } from './top-component.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { HelpComponent } from './help/help.component';
-import { SettingsComponent } from './settings/settings.component';
-import { ProfileComponent } from './profile/profile.component';
+import { SettingsComponent } from '../settings/settings.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
-    GlobalComponentComponent,
+    TopComponent,
     NavBarComponent,
     SearchBarComponent,
     AnnouncementComponent,
     HelpComponent,
     SettingsComponent,
-    ProfileComponent
+    ProfileComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule
   ],
   exports: [
-    GlobalComponentComponent,
+    TopComponent,
     NavBarComponent,
     SearchBarComponent,
     AnnouncementComponent,
     HelpComponent,
     SettingsComponent,
-    ProfileComponent
+    ProfileComponent, 
+    PageNotFoundComponent
   ]
 })
-export class GlobalComponentModule { }
+export class TopComponentModule { }

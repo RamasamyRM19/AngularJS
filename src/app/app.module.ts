@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GlobalComponentModule } from './global-component/global-component.module';
+import { TopComponentModule } from './top-component/top-component.module';
 import { BottomModule } from './bottom-component/bottom.module';
-import { DataService } from './data.service';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { DataService } from './data.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GlobalComponentModule,
+    TopComponentModule,
     BottomModule,
     HttpClientModule,
   ],

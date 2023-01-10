@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomLeftBarComponent } from './bottom-left-bar.component';
+import { TopComponent } from './top-component.component';
 
-describe('BottomLeftBarComponent', () => {
-  let component: BottomLeftBarComponent;
-  let fixture: ComponentFixture<BottomLeftBarComponent>;
+describe('TopComponent', () => {
+  let component: TopComponent;
+  let fixture: ComponentFixture<TopComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BottomLeftBarComponent ]
+      declarations: [ TopComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BottomLeftBarComponent);
+    fixture = TestBed.createComponent(TopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

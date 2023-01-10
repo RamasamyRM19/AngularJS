@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { BottomComponent } from './bottom.component';
-import { BottomLeftBarComponent } from './bottom-left-bar/bottom-left-bar.component';
-import { BottomCenterBarComponent } from './bottom-center-bar/bottom-center-bar.component';
-import { BottomRightBarComponent } from './bottom-right-bar/bottom-right-bar.component';
-import { CategoryListComponent } from './bottom-left-bar/category-list/category-list.component';
-import { CenterTaskComponent } from './bottom-center-bar/center-task/center-task.component';
+import { CategoryComponent } from './category/category.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { TaskDetailsComponent } from './task-details/task-details.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CenterTaskComponent } from './task-list/center-task/center-task.component';
+import { FilterTaskPipe } from '../pipe/filter-task.pipe';
 
 @NgModule({
   declarations: [
     BottomComponent,
     CategoryListComponent,
-    BottomLeftBarComponent,
-    BottomCenterBarComponent,
-    BottomRightBarComponent,
-    CenterTaskComponent
+    CategoryComponent,
+    TaskListComponent,
+    TaskDetailsComponent,
+    CenterTaskComponent,
+    FilterTaskPipe
   ],
   imports: [
     CommonModule,
@@ -23,9 +25,9 @@ import { CenterTaskComponent } from './bottom-center-bar/center-task/center-task
   ],
   exports: [
     BottomComponent,
-    BottomLeftBarComponent,
-    BottomCenterBarComponent,
-    BottomRightBarComponent
+    CategoryComponent,
+    TaskListComponent,
+    TaskDetailsComponent
   ]
 })
 export class BottomModule { }

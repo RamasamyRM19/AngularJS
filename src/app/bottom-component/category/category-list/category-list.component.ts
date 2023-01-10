@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Menu } from '../menu';
-import { TaskService } from 'src/app/task.service';
-import { DataService } from 'src/app/data.service';
+import { TaskService } from 'src/app/services/task.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-category-list',

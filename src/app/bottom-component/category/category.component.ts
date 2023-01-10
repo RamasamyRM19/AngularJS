@@ -1,16 +1,16 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Menu } from './menu';
-import { TaskService } from 'src/app/task.service';
-import { DataService } from 'src/app/data.service';
+import { TaskService } from 'src/app/services/task.service';
+import { DataService } from 'src/app/services/data.service';
 import { CategoryListComponent } from './category-list/category-list.component';
 
 @Component({
-  selector: 'app-bottom-left-bar',
-  templateUrl: './bottom-left-bar.component.html',
-  styleUrls: ['./bottom-left-bar.component.scss']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss']
 })
 
-export class BottomLeftBarComponent {
+export class CategoryComponent {
 
   public CategoryMenu: Menu[] = this.taskService.getCategories();
   public selectedCategory?: string;
