@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
-import { Task } from './bottom-center-bar/task';
-import { TaskService } from '../task.service';
-import { Menu } from './bottom-left-bar/menu';
+import { Task } from './task-list/task';
+import { TaskService } from '../services/task.service';
+import { Menu } from './category/menu';
 import { Constant } from '../constant';
 
 @Component({

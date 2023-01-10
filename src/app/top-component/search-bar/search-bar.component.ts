@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class SearchBarComponent {
 
+  constructor(private taskService:TaskService){}
+  
+  searchTask(event: any) {
+   console.log(event.target.value);
+  }
 }

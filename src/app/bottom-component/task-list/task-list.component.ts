@@ -1,16 +1,16 @@
 import { Component, DoCheck, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from './task';
-import { TaskService } from 'src/app/task.service';
-import { Menu } from '../bottom-left-bar/menu';
+import { TaskService } from 'src/app/services/task.service';
+import { Menu } from '../category/menu';
 import { Constant } from 'src/app/constant';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-bottom-center-bar',
-  templateUrl: './bottom-center-bar.component.html',
-  styleUrls: ['./bottom-center-bar.component.scss']
+  selector: 'app-task-list',
+  templateUrl: './task-list.component.html',
+  styleUrls: ['./task-list.component.scss']
 })
-export class BottomCenterBarComponent implements OnInit, DoCheck {
+export class TaskListComponent implements OnInit, DoCheck {
 
   public currentDate = new Date();
   public taskName: string = "";

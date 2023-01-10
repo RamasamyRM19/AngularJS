@@ -1,8 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Menu } from './bottom-component/bottom-left-bar/menu';
+import { Menu } from '../bottom-component/category/menu';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { Task } from './bottom-component/bottom-center-bar/task';
-import { Constant } from './constant';
+import { Task } from '../bottom-component/task-list/task';
+import { Constant } from '../constant';
 import { DataService } from './data.service';
 
 @Injectable({
@@ -50,10 +50,13 @@ export class TaskService {
 
   private getTask = new Subject<Task[]>();
   public getTask$ = this.getTask.asObservable();
+  public filter: string = "";
+  public filterSubject = new BehaviorSubject(this.filter);
+  public filter$ = this.filterSubject.asObservable();
 
   constructor(private dataService: DataService) { 
     this.retrieveTasks();
-   this.viewRightContainer = false;
+    this.viewRightContainer = false;
   }
 
   getCategories(): Menu[] {
@@ -90,7 +93,7 @@ export class TaskService {
 
   retrieveTasks() {
     this.dataService.getTasks().subscribe((tasks: any) => {
-      this.taskList = tasks;
+      this.taskList = tasks.reverse();
       this.retrievedTasks.next(tasks);
     })
   }

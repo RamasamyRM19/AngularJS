@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
+import { DataService } from './services/data.service';
 import { Observable } from 'rxjs';
-import { Menu } from './bottom-component/bottom-left-bar/menu';
+import { Menu } from './bottom-component/category/menu';
 
 @Component({
   selector: 'app-root',

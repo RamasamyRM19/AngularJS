@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SettingsComponent } from './global-component/settings/settings.component';
-import { HelpComponent } from './global-component/help/help.component';
-import { AnnouncementComponent } from './global-component/announcement/announcement.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HelpComponent } from './top-component/help/help.component';
+import { AnnouncementComponent } from './top-component/announcement/announcement.component';
 import { BottomComponent } from './bottom-component/bottom.component';
-import { ProfileComponent } from './global-component/profile/profile.component';
-import { PageNotFoundComponent } from './global-component/page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PageNotFoundComponent } from './top-component/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: BottomComponent},

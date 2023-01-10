@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task } from '../bottom-center-bar/task';
-import { TaskService } from 'src/app/task.service';
+import { Task } from '../task-list/task';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
-  selector: 'app-bottom-right-bar',
-  templateUrl: './bottom-right-bar.component.html',
-  styleUrls: ['./bottom-right-bar.component.scss']
+  selector: 'app-task-details',
+  templateUrl: './task-details.component.html',
+  styleUrls: ['./task-details.component.scss']
 })
-export class BottomRightBarComponent implements OnInit {
+export class TaskDetailsComponent implements OnInit {
  
  public selectedTask!: Task;
 

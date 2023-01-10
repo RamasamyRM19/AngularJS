@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomRightBarComponent } from './bottom-right-bar.component';
+import { BottomRightBarComponent } from './task-details.component';
 
 describe('BottomRightBarComponent', () => {
   let component: BottomRightBarComponent;

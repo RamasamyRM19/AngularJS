@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../task';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/app/services/task.service';
 import { Constant } from 'src/app/constant';
-import { DataService } from 'src/app/data.service';
+import { DataService } from 'src/app/services/data.service';
+import { FilterTaskPipe } from 'src/app/pipe/filter-task.pipe';
 
 @Component({
   selector: 'app-center-task',
@@ -13,9 +14,14 @@ export class CenterTaskComponent {
 
   @Input() taskList!: Task[];
   public constant = new Constant();
+  public filter:string = "";
 
   ngOnInit(): void {
     //this.getTasks();
+  }
+
+  ngDoCheck(): any {
+    this.filter = this.taskService.filter;
   }
 
   constructor(public taskService: TaskService, private dataService: DataService) { }
