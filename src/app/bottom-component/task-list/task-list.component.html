@@ -16,13 +16,13 @@
       </div>
     </div>
   </div>
-  <div class="period">
+  <div [ngClass]="showPeriod()? 'period' : 'hide-period'">
     <p id="period">{{currentDate | date:'EEEE, MMMM d'}}</p>
   </div>
 </div>
 
 <div class="center">
-  <div class="content-two" id="content-two">
+  <div id="content-two" [ngClass]="showTaskContent()? 'hide-center-content': 'content-two'">
     <div class="middle-content">
       <div class="circle">
         <i class="fa fa-circle-thin"></i>
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <div class="content-three" id="content-three">
+  <div id="content-three" [ngClass]="showAssignedToMe()? 'showAssignedToMe' : 'content-three'">
     <app-center-task [taskList]="pendingTasks"></app-center-task>
 
     <div [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
@@ -53,6 +53,10 @@
     <div class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
       <app-center-task [taskList]="completedTasks"></app-center-task>
     </div>
+  </div>
+  <div [ngClass]="showAssignedToMe()? 'showAssignedToMe' : 'hide'">
+    <img src="../../../assets/images/assignedToMe.jpeg" id="assignedToMeImage">
+    <p id="assignedToMeContent">Tasks assigned to you in To Do or Planner show up here</p>
   </div>
 
 </div>

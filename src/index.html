@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>ToDo</title>
@@ -9,9 +10,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/aff2218056.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+  <!-- <div *ngIf="isLoading | async" class="overlay"> -->
+  <!-- <ngx-spinner class="spinner" mode="indeterminate" style="color: white">
+      <p>Loading...</p>
+    </ngx-spinner> -->
+
+  <!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true">
+      <p style="color: white; margin-top: 25rem; margin-left: 40rem;" > Loading... </p>
+    </ngx-spinner> -->
+  <!-- </div> -->
+  <div *ngIf="isLoading| async" class="overlay">
+    <ngx-spinner></ngx-spinner>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" loadingText="Loading..."
+      type="ball-scale-multiple">
+    </ngx-spinner>
+  </div>
   <app-root></app-root>
 </body>
+
 </html>
 
 

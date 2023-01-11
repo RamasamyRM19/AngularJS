@@ -118,12 +118,12 @@ $primary-color2: #dedede;
     ::-webkit-scrollbar {
       width: 8px;
     }
-  
+
     ::-webkit-scrollbar-thumb {
       background: #e7e6e5;
       border-radius: 10px;
     }
-    
+
     div {
       display: inline-block;
     }
@@ -199,6 +199,10 @@ $primary-color2: #dedede;
 
     }
 
+    .hide-center-content {
+      display: none;
+    }
+
     .content-three .middle-content1,
     .task-center {
       background-color: $seconday-color1;
@@ -264,6 +268,31 @@ $primary-color2: #dedede;
 
     }
 
+    .hide {
+      display: none;
+    }
+
+    .showAssignedToMe {
+      #assignedToMeImage {
+        top: 7.9rem;
+        left: 19.1rem;
+        position: relative;
+      }
+
+      #assignedToMeContent {
+        top: 10.7rem;
+        left: 16.8rem;
+        position: relative;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #605e5c;
+        font-family: 'Segoe UI', 'Segoe', 'Arial', 'sans-serif';
+        line-height: 28px;
+        width: 20rem;
+      }
+    }
+
   }
 
   .content-one .period,
@@ -272,6 +301,10 @@ $primary-color2: #dedede;
     color: $tertiary-color;
     font-weight: 100;
     width: 100%;
+  }
+
+  .content-one .hide-period {
+    display: none;
   }
 }
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopComponent } from './top-component.component';
+import { GlobalComponent } from './global-component.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -12,7 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 @NgModule({
   declarations: [
-    TopComponent,
+    GlobalComponent,
     NavBarComponent,
     SearchBarComponent,
     AnnouncementComponent,
@@ -26,7 +26,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule
   ],
   exports: [
-    TopComponent,
+    GlobalComponent,
     NavBarComponent,
     SearchBarComponent,
     AnnouncementComponent,
@@ -36,4 +36,4 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent
   ]
 })
-export class TopComponentModule { }
+export class GlobalComponentModule { }

@@ -103,12 +103,36 @@ export class TaskListComponent implements OnInit, DoCheck {
     }
   }
 
+  showPeriod() {
+    if (this.selectedCategory.id === this.constant.MY_DAY_ID) {
+      return true;
+    } else {
+      return false;
+    } 
+  }
+
+  showTaskContent() {
+    if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
+      return true;
+    } else {
+      return false;
+    } 
+  }
+
   showAndHideCompletedTask() {
     if (this.hideCompletedTask == true) {
       this.hideCompletedTask = false;
     } else {
       this.hideCompletedTask = true;
     }
+  }
+
+  showAssignedToMe() {
+    if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
+      return true;
+    } else {
+      return false;
+    } 
   }
 
   public renderCompletedTask() {

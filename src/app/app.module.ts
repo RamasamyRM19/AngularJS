@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopComponentModule } from './top-component/top-component.module';
+import { GlobalComponentModule } from './global-component/global-component.module';
 import { BottomModule } from './bottom-component/bottom.module';
 import { DataService } from './services/data.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,18 @@ import { DataService } from './services/data.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TopComponentModule,
+    GlobalComponentModule,
     BottomModule,
     HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
-  providers: [DataService],
+  providers: [DataService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
