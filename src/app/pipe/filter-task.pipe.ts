@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Task } from '../bottom-component/task-list/task';
 
 @Pipe({
-  name: 'filterTask'
+  name: 'filterTask',
+  pure: false
 })
 export class FilterTaskPipe implements PipeTransform {
 

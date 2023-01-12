@@ -16,6 +16,8 @@ export class CenterTaskComponent {
   public constant = new Constant();
   public filter:string = "";
 
+  constructor(public taskService: TaskService, private dataService: DataService) { }
+
   ngOnInit(): void {
     //this.getTasks();
   }
@@ -24,10 +26,8 @@ export class CenterTaskComponent {
     this.filter = this.taskService.filter;
   }
 
-  constructor(public taskService: TaskService, private dataService: DataService) { }
-
-  getSelectedTask(task:Task): void {
-    this.taskService.setSelectedTasks(task);
+  getSelectedTask(id:number): void {
+    this.taskService.setSelectedTasks(id);
     this.taskService.rightContainerView();
   }
 
@@ -39,5 +39,13 @@ export class CenterTaskComponent {
         console.log(response);
         this.taskService.setTasks(this.taskList);
       });
+  }
+
+  clickToImportant(task: Task) {
+    this.taskService.clickToImportant(task);
+  }
+
+  completedTask(task: Task) {
+    this.taskService.completedTask(task);
   }
 }

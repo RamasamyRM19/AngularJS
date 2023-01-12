@@ -19,7 +19,7 @@ export class BottomComponent {
   ngOnInit(): void {
   }
 
-  constructor(public commonService: TaskService) {
+  constructor(public taskService: TaskService) {
   }
 
   getCategory(categoryName: string) {

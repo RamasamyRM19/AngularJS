@@ -38,7 +38,7 @@
         <div><i class="fa-solid fa-repeat"></i></div>
       </div>
       <div class="new-two">
-        <button class="addBtn">Add</button>
+        <button class="addBtn" (click)="addNewTask()">Add</button>
       </div>
     </div>
   </div>
@@ -54,6 +54,7 @@
       <app-center-task [taskList]="completedTasks"></app-center-task>
     </div>
   </div>
+  
   <div [ngClass]="showAssignedToMe()? 'showAssignedToMe' : 'hide'">
     <img src="../../../assets/images/assignedToMe.jpeg" id="assignedToMeImage">
     <p id="assignedToMeContent">Tasks assigned to you in To Do or Planner show up here</p>

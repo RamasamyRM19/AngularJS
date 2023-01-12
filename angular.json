@@ -31,7 +31,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ngx-spinner/animations/ball-spin-clockwise-fade.css"
+              "node_modules/ngx-spinner/animations/ball-running-dots.css"
             ],
             "scripts": []
           },

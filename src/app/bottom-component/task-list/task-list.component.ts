@@ -14,10 +14,8 @@ export class TaskListComponent implements OnInit, DoCheck {
 
   public currentDate = new Date();
   public taskName: string = "";
-  public taskItem: Task[] = this.taskService.getTasks();
-  //public tasks: Task[] = [];
   public task?: Task;
-  public tasks: Task[] = this.taskService.getTasks();
+  public tasks: Task[] = [];
   public pendingTasks: Task[] = [];
   public categoryItem?: boolean;
   public isImportantTask = false;
@@ -32,21 +30,21 @@ export class TaskListComponent implements OnInit, DoCheck {
   constructor(public taskService: TaskService, public dataService: DataService) {
   }
 
-  ngOnInit(): void {
-    this.taskService.categoryDetails$.subscribe(iconOfCategory => this.categoryIcon = iconOfCategory.icon);
-    this.taskService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory.name);
-    this.taskService.categoryDetails$.subscribe(category => this.selectedCategory = category);
-    this.taskService.retrievedTasks$.subscribe(tasks => this.tasks = tasks);
-    this.renderTask();
-    this.renderCompletedTask();
-  }
-
   ngDoCheck(): void {
     this.renderTask();
     this.renderCompletedTask();
   }
 
-  addNewTask() {
+  ngOnInit(): void {
+    this.taskService.categoryDetails$.subscribe(iconOfCategory => this.categoryIcon = iconOfCategory.icon);
+    this.taskService.categoryDetails$.subscribe(nameOfCategory => this.categoryName = nameOfCategory.name);
+    this.taskService.categoryDetails$.subscribe(category => this.selectedCategory = category);
+    this.taskService.retrievedTasks$.subscribe(tasks => this.tasks = tasks);
+    // this.renderTask();
+    // this.renderCompletedTask();
+  }
+
+  public addNewTask(): void {
     this.categoryList = this.taskService.getCategories();
     if (this.taskName.length > 0) {
       let task: Task;
@@ -69,18 +67,16 @@ export class TaskListComponent implements OnInit, DoCheck {
         categoryIds: categoryId,
         note: "",
       }
-      console.log(task);
-      this.taskService.addTask(task);
-      this.taskName = "";
       this.dataService.postTasks(task)
       .subscribe(() => {
-        this.taskService.getTasks();
+        this.taskService.retrieveTasks();
       });
+      this.taskName = "";
     }
     console.log(this.tasks);
   }
 
-  renderTask() {
+  renderTask(): void {
     this.pendingTasks = [];
     this.tasks.forEach(task => {
       if (!task.isCompleted) {
@@ -93,7 +89,7 @@ export class TaskListComponent implements OnInit, DoCheck {
     });
   }
 
-  changeTitleColorBasedOnCategory() {
+  changeTitleColorBasedOnCategory(): string {
     if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
       return 'changeGreenColor';
     } else if (this.selectedCategory.id === this.constant.MY_DAY_ID) {
@@ -103,7 +99,7 @@ export class TaskListComponent implements OnInit, DoCheck {
     }
   }
 
-  showPeriod() {
+  showPeriod(): boolean {
     if (this.selectedCategory.id === this.constant.MY_DAY_ID) {
       return true;
     } else {
@@ -111,7 +107,7 @@ export class TaskListComponent implements OnInit, DoCheck {
     } 
   }
 
-  showTaskContent() {
+  showTaskContent(): boolean {
     if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
       return true;
     } else {
@@ -119,7 +115,7 @@ export class TaskListComponent implements OnInit, DoCheck {
     } 
   }
 
-  showAndHideCompletedTask() {
+  showAndHideCompletedTask(): void {
     if (this.hideCompletedTask == true) {
       this.hideCompletedTask = false;
     } else {
@@ -127,7 +123,7 @@ export class TaskListComponent implements OnInit, DoCheck {
     }
   }
 
-  showAssignedToMe() {
+  showAssignedToMe(): boolean {
     if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
       return true;
     } else {
@@ -135,7 +131,7 @@ export class TaskListComponent implements OnInit, DoCheck {
     } 
   }
 
-  public renderCompletedTask() {
+  public renderCompletedTask(): void {
     this.completedTasks = [];
     if (!(this.selectedCategory.id === this.constant.IMPORTANT_ID || this.selectedCategory.id === this.constant.PLANNED_ID)) {
       this.tasks.forEach(task => {

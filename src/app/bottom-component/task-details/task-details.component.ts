@@ -8,16 +8,16 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./task-details.component.scss']
 })
 export class TaskDetailsComponent implements OnInit {
- 
- public selectedTask!: Task;
 
- public note = "";
-  
+  public selectedTask!: Task;
+  public note = "";
+
   ngOnInit(): void {
     this.taskService.selectedTask$.subscribe(task => this.selectedTask = task);
+    console.log(this.selectedTask);
   }
 
-  constructor(public taskService:TaskService) {}
+  constructor(public taskService: TaskService) { }
 
   hideRightContainer(): void {
     this.taskService.hideRightContainer();

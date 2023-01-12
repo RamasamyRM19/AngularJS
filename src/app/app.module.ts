@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GlobalComponentModule } from './global-component/global-component.module';
 import { BottomModule } from './bottom-component/bottom.module';
-import { DataService } from './services/data.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,12 +22,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
-  providers: [DataService,
+  providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
       multi: true,
-   }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

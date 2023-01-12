@@ -38,9 +38,6 @@ export class TaskService {
   public selectedTask$ = this.selectedTask.asObservable();
   public constant = new Constant(); /*---------*/
 
-  public leftContainer = 'left-container';
-  public centerContainer = 'center-container';
-  public rightContainer = 'right-container';
   public viewLeftContainer = true;
   public viewRightContainer = true;
   public applyClass = this.constant.NORMAL_SCREEN;
@@ -57,6 +54,7 @@ export class TaskService {
   constructor(private dataService: DataService) { 
     this.retrieveTasks();
     this.viewRightContainer = false;
+    this.setSelectedTasks(1);
   }
 
   getCategories(): Menu[] {
@@ -79,8 +77,10 @@ export class TaskService {
     return this.selectedCategory;
   }
 
-  setSelectedTasks(task: Task): void {
-    this.selectedTask.next(task);
+  setSelectedTasks(taskId: number): void {
+    this.dataService.getTaskById(taskId).subscribe((task:any) => {
+      this.selectedTask.next(task);
+    })
   }
 
   getSelectedTasks() {
@@ -133,7 +133,7 @@ export class TaskService {
     })
   }
 
-  completedTask(task: Task) {
+  completedTask(task: Task): void {
     if (task.isCompleted == true) {
       task.isCompleted = false;
     } else {

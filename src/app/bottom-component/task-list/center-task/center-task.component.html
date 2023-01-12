@@ -1,12 +1,12 @@
 <div [ngClass]="taskService.applyClass == constant.CENTER_SCREEN? 'task-center':'middle-content1'" *ngFor="let item of taskList | filterTask: filter">
   <div class="circle">
-    <i [ngClass]="item.isCompleted ? 'fa-solid fa-circle-check': 'fa-regular fa-circle'" (mouseover)="taskService.mouseOverFunction($event)" (mouseout)="taskService.mouseOutFunction($event)" (click)="taskService.completedTask(item)"></i>
+    <i [ngClass]="item.isCompleted ? 'fa-solid fa-circle-check': 'fa-regular fa-circle'" (mouseover)="taskService.mouseOverFunction($event)" (mouseout)="taskService.mouseOutFunction($event)" (click)="completedTask(item)"></i>
   </div>
-  <div class="task" (click)="getSelectedTask(item)">
+  <div class="task" (click)="getSelectedTask(item.id)">
     <p class="new" [class.striked-task]="item.isCompleted">{{item.name}}</p>
     <p class="period">{{item.subName}}</p>
   </div>
   <div class="star">
-    <i [ngClass]="item.isImportant ? 'fa fa-star' : 'fa fa-star-o'" (click)="taskService.clickToImportant(item)" (click)="$event.stopPropagation()"></i>
+    <i [ngClass]="item.isImportant ? 'fa fa-star' : 'fa fa-star-o'" (click)="clickToImportant(item)"></i>
   </div>
 </div>

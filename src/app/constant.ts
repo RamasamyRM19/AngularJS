@@ -8,4 +8,6 @@ export class Constant {
   public readonly FULL_SCREEN = "fullScreen";
   public readonly CENTER_SCREEN = "centerScreen";
   public readonly LEFT_SCREEN = "leftScreen";
+  public readonly BASEURL = "http://localhost:8080/todo/";
+  public readonly HEADERS = { 'content-type': 'application/json'};
 }
