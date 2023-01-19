@@ -4,7 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GlobalComponentModule } from './global-component/global-component.module';
-import { BottomModule } from './bottom-component/bottom.module';
+import { CategoryTaskModule } from './category-task-component/category-task.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     GlobalComponentModule,
-    BottomModule,
+    CategoryTaskModule,
     HttpClientModule,
     NgxSpinnerModule,
     BrowserAnimationsModule
@@ -31,4 +31,5 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

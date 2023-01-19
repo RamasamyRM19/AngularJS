@@ -1,6 +1,6 @@
 <div class="container">
   <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-running-dots" [fullScreen] = "true">
-    <p style="color: white" > Loading... </p>
+    <p id="loading-spinner"> Loading... </p>
   </ngx-spinner>
   <!---------------------------- TOP NAV CONTAINER ------------------------------->
   <div class="top-nav-container">
@@ -9,7 +9,6 @@
 
   <!------------------------------- BOTTOM CONTAINER ---------------------------------->
   <div class="bottom-nav-container">
-    <!-- <app-bottom-component></app-bottom-component> -->
     <router-outlet></router-outlet>
   </div>
 </div>

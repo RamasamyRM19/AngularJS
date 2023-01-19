@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomCenterBarComponent } from './task-list.component';
+import { TaskListComponent } from './task-list.component';
 
-describe('BottomCenterBarComponent', () => {
-  let component: BottomCenterBarComponent;
-  let fixture: ComponentFixture<BottomCenterBarComponent>;
+describe('TaskListComponent', () => {
+  let component: TaskListComponent;
+  let fixture: ComponentFixture<TaskListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BottomCenterBarComponent ]
+      declarations: [ TaskListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BottomCenterBarComponent);
+    fixture = TestBed.createComponent(TaskListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

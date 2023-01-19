@@ -1,6 +1,6 @@
 <div class="search-bar" title="search">
   <div class="search">
     <i class="fa fa-search"></i>
-    <input id="search" type="text" placeholder="Search" (keyup)="searchTask($event)">
+    <input id="search" type="text" placeholder="Search" (keyup)="searchTasks(searchTask.value)" #searchTask>
   </div>
 </div>

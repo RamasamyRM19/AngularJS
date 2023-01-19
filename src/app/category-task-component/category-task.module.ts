@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
-import { BottomComponent } from './bottom.component';
+import { CategoryTaskComponent } from './category-task.component';
 import { CategoryComponent } from './category/category.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
@@ -11,7 +11,7 @@ import { FilterTaskPipe } from '../pipe/filter-task.pipe';
 
 @NgModule({
   declarations: [
-    BottomComponent,
+    CategoryTaskComponent,
     CategoryListComponent,
     CategoryComponent,
     TaskListComponent,
@@ -24,10 +24,10 @@ import { FilterTaskPipe } from '../pipe/filter-task.pipe';
     FormsModule
   ],
   exports: [
-    BottomComponent,
+    CategoryTaskComponent,
     CategoryComponent,
     TaskListComponent,
     TaskDetailsComponent
   ]
 })
-export class BottomModule { }
+export class CategoryTaskModule { }

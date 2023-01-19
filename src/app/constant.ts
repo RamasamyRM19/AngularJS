@@ -1,3 +1,4 @@
+/* It's a class that contains a constants. */
 export class Constant {
   public readonly MY_DAY_ID = 1;
   public readonly IMPORTANT_ID = 2;

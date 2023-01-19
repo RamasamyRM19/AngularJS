@@ -1,7 +1,7 @@
 @import "./global-component/nav-bar/nav-bar.component.scss";
-@import "./bottom-component/category/category.component.scss";
-@import "./bottom-component/task-list/task-list.component.scss";
-@import "./bottom-component/task-details/task-details.component.scss";
+@import "./category-task-component/category/category.component.scss";
+@import "./category-task-component/task-list/task-list.component.scss";
+@import "./category-task-component/task-details/task-details.component.scss";
 
 * {
   margin: 0;
@@ -15,4 +15,8 @@ body {
 i:hover,
 button:hover {
   cursor: pointer;
+}
+
+#loading-spinner {
+  color: white;
 }

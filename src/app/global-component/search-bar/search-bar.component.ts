@@ -10,7 +10,8 @@ export class SearchBarComponent {
 
   constructor(private taskService:TaskService){}
   
-  searchTask(event: any) {
-   console.log(event.target.value);
+  searchTasks(value: string) {
+    this.taskService.filter = value;
   }
+
 }
