@@ -55,7 +55,8 @@ $primary-color2: #dedede;
         list-style-type: none;
       }
 
-      .top-content-left {
+      .top-content-left,
+      .top-content-center {
         width: 70%;
         font-size: 20px;
         font-weight: 600;
@@ -81,7 +82,16 @@ $primary-color2: #dedede;
         }
       }
 
-      .top-content-right {
+      .top-content-center {
+        width: 45%;
+
+        ul {
+          width: 23rem;
+        }
+      }
+
+      .top-content-right,
+      .top-content-center-right {
         text-align: right;
         width: 29%;
         font-size: 14px;
@@ -106,6 +116,22 @@ $primary-color2: #dedede;
         .sort i {
           transform: rotate(90deg);
         }
+
+        .center-sort {
+          width: 55%;
+
+          i {
+            transform: rotate(90deg);
+          }
+        }
+
+        .center-suggestion {
+          width: 30%;
+        }
+      }
+
+      .top-content-center-right {
+        width: 50%;
       }
     }
   }
@@ -156,7 +182,8 @@ $primary-color2: #dedede;
         width: 98%;
       }
 
-      .middle-content {
+      .middle-content,
+      .middle-content-center {
         background-color: $seconday-color1;
         padding: 15px 3.5px 15px 25px;
         border-bottom: 1px solid $seconday-color;
@@ -173,12 +200,33 @@ $primary-color2: #dedede;
         }
       }
 
+      .middle-content-center {
+        width: 96%;
+
+        .circle {
+          width: 4%;
+        }
+
+        .circle i,
+        .addTask ::placeholder {
+          color: $quaternary-color1;
+        }
+      }
+
       .middle-content-one {
         padding: 5px 0px 8px 25px;
 
         .new-one {
           width: 93.5%;
           padding-top: 5px;
+
+          div {
+            width: 4%;
+          }
+        }
+
+        .new-one-center {
+          width: 90.5%;
 
           div {
             width: 4%;
@@ -208,7 +256,7 @@ $primary-color2: #dedede;
       background-color: $seconday-color1;
       padding: 10px 3.5px 6px 25px;
       border-bottom: 1px solid $seconday-color;
-      width: 61.7rem;
+      width: 62.3rem;
       margin-top: 0.5rem;
       border-radius: 7px;
       box-shadow: 0 4px 6px -6px #a5a5a5;
@@ -345,7 +393,7 @@ $primary-color2: #dedede;
 
 //}
 
-.container .bottom-nav-container .center-container .center .content-three {
+.content-three {
   //height: auto;
   max-height: 21.5rem;
 
@@ -405,10 +453,6 @@ $primary-color2: #dedede;
       color: #292827;
       font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
       background-color: transparent;
-    }
-
-    #completed-task-count {
-      padding: 0;
     }
   }
 

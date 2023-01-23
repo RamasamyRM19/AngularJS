@@ -10,7 +10,7 @@ export class SearchBarComponent {
 
   constructor(private taskService:TaskService){}
   
-  searchTasks(value: string) {
+  public searchTasks(value: string) {
     this.taskService.filter = value;
   }
 

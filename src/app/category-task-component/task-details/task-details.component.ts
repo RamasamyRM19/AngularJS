@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from '../task-list/task';
 import { TaskService } from 'src/app/services/task.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-task-details',
@@ -18,20 +19,19 @@ export class TaskDetailsComponent implements OnInit {
    * first ngOnChanges()
    */
   ngOnInit(): void {
-    this.taskService.selectedTask$.subscribe(task => this.selectedTask = task);
-    console.log(this.selectedTask);
+    this.taskService.setSelectedTasks();
+    this.taskService.selectedTask$.subscribe(task => {
+      this.selectedTask = task;
+      this.note = task.note;
+    });
   }
 
-  /**
-   * The constructor function is a default function that runs when we create a new instance of a class
-   * @param {TaskService} taskService - This is the name of the parameter.
-   */
-  constructor(public taskService: TaskService) { }
+  constructor(public taskService: TaskService, public dataService: DataService) { }
 
   /**
    * It calls the hideRightContainer() function in the taskService.ts file
    */
-  hideRightContainer(): void {
+  public hideRightContainer(): void {
     this.taskService.hideRightContainer();
   }
 
@@ -39,8 +39,10 @@ export class TaskDetailsComponent implements OnInit {
    * The function addNotes() is a void function that takes no parameters. It sets the selectedTask's
    * note property to the note property of the component
    */
-  addNotes(): void {
+  public addNotes(): void {
     this.selectedTask.note = this.note;
+    this.dataService.postTasks(this.selectedTask).subscribe(() => {
+    });
   }
 
 }

@@ -26,7 +26,7 @@ $primary-color2: #2564cf;
     ::-webkit-scrollbar {
       width: 8px;
     }
-  
+
     ::-webkit-scrollbar-thumb {
       background: #e7e6e5;
       border-radius: 10px;
@@ -66,15 +66,16 @@ $primary-color2: #2564cf;
       .note-input {
         border: none;
         outline: none;
-        width: 100%;
+        width: 94%;
         resize: none;
         height: 7rem;
         font-size: 16px;
+        padding: 1rem 0px 0px 1rem;
       }
+    }
 
-      &:last-child {
-        height: 7rem;
-      }
+    .note-section {
+      height: 7rem;
     }
 
     .bottom-section {
@@ -154,11 +155,6 @@ $primary-color2: #2564cf;
     display: none;
   }
 }
-
-// .show-block {
-//   display: inline-block;
-//   width: 26%;
-// }
 
 .task-title i {
   color: $primary-color2;

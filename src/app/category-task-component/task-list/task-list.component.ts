@@ -83,15 +83,15 @@ export class TaskListComponent implements OnInit, DoCheck {
         });
       this.taskName = "";
     }
-    console.log(this.tasks);
   }
 
   /**
    * It checks if the category is a default category or not
-   * @param {number} id - The id of the category
-   * @returns A boolean value.
+   * 
+   * @param id - The id of the category
+   * @return A boolean value.
    */
-  public isDefaultTask(id: number): boolean {
+  private isDefaultTask(id: number): boolean {
     let noOfDefaultCategory = 5;
     for (let i = 0; i < noOfDefaultCategory; i++) {
       if (this.categoryList[i].id === id) {
@@ -105,7 +105,7 @@ export class TaskListComponent implements OnInit, DoCheck {
    * For each task, if the task is not completed, then for each categoryId in the task, if the
    * categoryId is equal to the selectedCategory.id, then push the task to the pendingTasks array
    */
-  renderTask(): void {
+  private renderTask(): void {
     this.pendingTasks = [];
     this.tasks.forEach(task => {
       if (!task.isCompleted) {
@@ -121,9 +121,10 @@ export class TaskListComponent implements OnInit, DoCheck {
   /**
    * If the selected category is assigned to me, return the class name changeGreenColor, else if the
    * selected category is my day, return an empty string, else return the class name changeBlueColor
-   * @returns A string.
+   * 
+   * @return string.
    */
-  changeTitleColorBasedOnCategory(): string {
+  public changeTitleColorBasedOnCategory(): string {
     if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
       return 'changeGreenColor';
     } else if (this.selectedCategory.id === this.constant.MY_DAY_ID) {
@@ -135,9 +136,10 @@ export class TaskListComponent implements OnInit, DoCheck {
 
   /**
    * If the selected category is My Day, then show the period
-   * @returns A boolean value.
+   * 
+   * @return A boolean value.
    */
-  showPeriod(): boolean {
+  public showPeriod(): boolean {
     if (this.selectedCategory.id === this.constant.MY_DAY_ID) {
       return true;
     } else {
@@ -148,9 +150,10 @@ export class TaskListComponent implements OnInit, DoCheck {
   /**
    * If the selected category is the constant ASSIGNED_TO_ME_ID, then return true, otherwise return
    * false
-   * @returns A boolean value.
+   * 
+   * @return A boolean value.
    */
-  showTaskContent(): boolean {
+  public showTaskContent(): boolean {
     if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
       return true;
     } else {
@@ -161,7 +164,7 @@ export class TaskListComponent implements OnInit, DoCheck {
   /**
    * If the hideCompletedTask variable is true, set it to false. If it's false, set it to true
    */
-  showAndHideCompletedTask(): void {
+  public showAndHideCompletedTask(): void {
     if (this.hideCompletedTask == true) {
       this.hideCompletedTask = false;
     } else {
@@ -174,7 +177,7 @@ export class TaskListComponent implements OnInit, DoCheck {
    * otherwise return false
    * @returns A boolean value.
    */
-  showAssignedToMe(): boolean {
+  public showAssignedToMe(): boolean {
     if (this.selectedCategory.id === this.constant.ASSIGNED_TO_ME_ID) {
       return true;
     } else {
@@ -186,7 +189,7 @@ export class TaskListComponent implements OnInit, DoCheck {
    * It loops through all the tasks and checks if the task is completed and if the task is in the
    * selected category. If it is, it adds it to the completedTasks array
    */
-  public renderCompletedTask(): void {
+  private renderCompletedTask(): void {
     this.completedTasks = [];
     if (!(this.selectedCategory.id === this.constant.IMPORTANT_ID || this.selectedCategory.id === this.constant.PLANNED_ID)) {
       this.tasks.forEach(task => {
@@ -205,7 +208,7 @@ export class TaskListComponent implements OnInit, DoCheck {
    * The toggleContent() function is called when the user clicks the "Toggle Content" button. The
    * function calls the toggleContent() function in the taskService
    */
-  toggleContent(): void {
+  public toggleContent(): void {
     this.taskService.toggleContent();
   }
 

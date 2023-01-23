@@ -48,7 +48,7 @@ export class TaskService {
    * 
    * @return categoryMenu
    */
-  getCategories(): Menu[] {
+  public getCategories(): Menu[] {
     return this.categoryMenu;
   }
 
@@ -57,7 +57,7 @@ export class TaskService {
    * 
    * @param categories - this is the array of Menu objects that we are passing in.
    */
-  setCategories(categories: Menu[]): void {
+  public setCategories(categories: Menu[]): void {
     this.categoryMenu = categories;
   }
 
@@ -67,7 +67,7 @@ export class TaskService {
    * 
    * @param category - the category that was selected.
    */
-  setSelectedCategory(category: Menu): void {
+  public setSelectedCategory(category: Menu): void {
     this.selectedCategory.next(category);
   }
 
@@ -76,7 +76,7 @@ export class TaskService {
    * 
    * @return BehaviorSubject<Menu>
    */
-  getSelectedCategory(): BehaviorSubject<Menu> {
+  public getSelectedCategory(): BehaviorSubject<Menu> {
     return this.selectedCategory;
   }
 
@@ -89,7 +89,7 @@ export class TaskService {
    * @param taskId - the id of the task to be selected. If not provided, the current task
    * selected will be used.
    */
-  setSelectedTasks(taskId?: number): void { 
+  public setSelectedTasks(taskId?: number): void { 
     if (taskId === undefined) {
       taskId = this.currentSelectedTaskId;
     }
@@ -103,7 +103,7 @@ export class TaskService {
    * Retrieve all the tasks based on subscribing to the observable returned by the getTasks() 
    * function in the data service, and emit the retrieved tasks to the retrievedTasks observable
    */
-  retrieveTasks(): void {
+  public retrieveTasks(): void {
     this.dataService.getTasks().subscribe((tasks: any) => {
       this.retrievedTasks.next(tasks.reverse());
     })
@@ -115,7 +115,7 @@ export class TaskService {
    * 
    * @param event - event that is triggered when the mouse is over the element.
    */
-  mouseOverFunction(event: any): void {
+  public mouseOverFunction(event: any): void {
     if (event.target.className === "fa-regular fa-circle") {
       event.target.className = "fa-regular fa-circle-check";
     }
@@ -127,7 +127,7 @@ export class TaskService {
    * 
    * @param event - event that is triggered when the mouse is out the element.
    */
-  mouseOutFunction(event: any): void {
+  public mouseOutFunction(event: any): void {
     if (event.target.className === "fa-regular fa-circle-check") {
       event.target.className = "fa-regular fa-circle";
     }
@@ -141,7 +141,7 @@ export class TaskService {
    * 
    * @param task - task object that is passed in from the template.
    */
-  clickToImportant(task: Task): void {
+  public clickToImportant(task: Task): void {
     if (task.isImportant == false) {
       task.isImportant = true;
       task.categoryIds.push(this.constant.IMPORTANT_ID);
@@ -161,7 +161,7 @@ export class TaskService {
    * 
    * @param task - task object that is passed in from the template.
    */
-  completedTask(task: Task): void {
+  public completedTask(task: Task): void {
     if (task.isCompleted == true) {
       task.isCompleted = false;
     } else {
@@ -176,7 +176,7 @@ export class TaskService {
    * If the left container is visible, hide it and apply the appropriate class to the main container.
    * If the left container is hidden, show it and apply the appropriate class to the main container.
    */
-  toggleContent(): void {
+  public toggleContent(): void {
     if (this.viewLeftContainer === true) {
       this.viewLeftContainer = false;
       if (this.viewRightContainer === false) {
@@ -197,7 +197,7 @@ export class TaskService {
   /**
    * To show the right container of the screen
    */
-  rightContainerView(): void {
+  public rightContainerView(): void {
     this.viewRightContainer = true;
     if (this.viewLeftContainer === true) {
       this.applyClass = this.constant.CENTER_SCREEN;
@@ -209,7 +209,7 @@ export class TaskService {
   /**
    * Hides the right container and applies the appropriate class to the left container
    */
-  hideRightContainer(): void {
+  public hideRightContainer(): void {
     this.viewRightContainer = false;
     if (this.viewLeftContainer === true) {
       this.applyClass = this.constant.NORMAL_SCREEN;

@@ -26,13 +26,6 @@ export class CategoryComponent {
   ngOnInit(): void {
   }
 
-  /**
-   * The constructor function is a default function that runs when the component loads. The constructor
-   * function is where we inject any services or dependencies that we may need for the component
-   * @param {TaskService} taskService - This is the service that we created in the previous step.
-   * @param {DataService} dataService - DataService - This is the service that we created in the
-   * previous step.
-   */
   constructor(private taskService: TaskService, private dataService: DataService) {
   }
 
@@ -40,7 +33,7 @@ export class CategoryComponent {
    * The function calls the addNewCategoryMenu() function in the child component, passing the
    * categoryItem variable as a parameter
    */
-  addNewCategoryMenu(): void {
+  public addNewCategoryMenu(): void {
     this.child.addNewCategoryMenu(this.categoryItem);
     this.categoryItem = "";
   }
@@ -49,7 +42,7 @@ export class CategoryComponent {
    * The toggleContent() function is called when the user clicks the "Show/Hide" button. The function
    * calls the toggleContent() function in the taskService
    */
-  toggleContent() {
+  public toggleContent() {
     this.taskService.toggleContent();
   }
 

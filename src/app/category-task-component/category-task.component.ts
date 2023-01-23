@@ -31,7 +31,7 @@ export class CategoryTaskComponent {
    * 
    * @param {string} categoryName - The name of the category that the user clicked on.
    */
-  getCategory(categoryName: string): void {
+  public getCategory(categoryName: string): void {
     this.categoryIcon = categoryName.split("/")[0];
     this.categoryName = categoryName.split("/")[1];
   }
@@ -42,7 +42,7 @@ export class CategoryTaskComponent {
    * @param {Menu[]} categories - Menu[] - This is the array of Menu objects that we are passing to the
    * function.
    */
-  getCategoryList(categories: Menu[]): void {
+  public getCategoryList(categories: Menu[]): void {
     this.categoryList = categories;
   }
 

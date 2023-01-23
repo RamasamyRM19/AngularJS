@@ -14,11 +14,12 @@ export class FilterTaskPipe implements PipeTransform {
   /**
    * It takes an array of tasks and a filter string, and returns an array of tasks that match the
    * filter string
-   * @param {any} value - The array of tasks that we are filtering.
-   * @param {string} filter - The value of the filter input field.
-   * @returns An array of tasks that have a name that includes the filter.
+   * 
+   * @param value - The array of tasks that we are filtering.
+   * @param filter - The value of the filter input field.
+   * @return tasks - An array of tasks that have a name that includes the filter.
    */
-  transform(value: any, filter: string):Task[] {
+  public transform(value: any, filter: string): Task[] {
     if (value.length === 0 || filter === '') {
       return value;
     }

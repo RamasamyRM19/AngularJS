@@ -1,13 +1,13 @@
 <div class="content-one">
   <div class="top-content">
-    <div class="top-content-left">
+    <div [ngClass]="taskService.applyClass == constant.CENTER_SCREEN? 'top-content-center':'top-content-left'">
       <ul [ngClass]="changeTitleColorBasedOnCategory()">
         <i [ngClass]="taskService.viewLeftContainer? selectedCategory.icon:'fa-solid fa-bars'" id="sun" (click)="toggleContent()"></i>
         <li class="myDay" id="myDay">{{categoryName}}<i class="fa fa-ellipsis-h"></i></li>
       </ul>
     </div>
-    <div class="top-content-right">
-      <div class="sort" title="Sort">
+    <div [ngClass]="taskService.applyClass == constant.CENTER_SCREEN? 'top-content-center-right':'top-content-right'">
+      <div [ngClass]="taskService.applyClass == constant.CENTER_SCREEN? 'center-sort':'sort'" title="Sort">
         <i class="fa-solid fa-arrow-right-arrow-left"></i>Sort
       </div>
 
@@ -23,7 +23,7 @@
 
 <div class="center">
   <div id="content-two" [ngClass]="showTaskContent()? 'hide-center-content': 'content-two'">
-    <div class="middle-content">
+    <div [ngClass]="taskService.applyClass == constant.CENTER_SCREEN? 'middle-content-center':'middle-content'">
       <div class="circle">
         <i class="fa fa-circle-thin"></i>
       </div>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="middle-content-one">
-      <div class="new-one">
+      <div [ngClass]="taskService.applyClass == constant.CENTER_SCREEN? 'new-one-center':'new-one'">
         <div><i class="fa fa-calendar-o"></i></div>
         <div><i class="fa fa-bell-o"></i></div>
         <div><i class="fa-solid fa-repeat"></i></div>
@@ -48,7 +48,7 @@
 
     <div [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
       <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
-      <div>Completed</div>
+      <div [ngClass]="showAssignedToMe()? 'hide' : 'hide'">Completed</div>
     </div>
     <div class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
       <app-center-task [taskList]="completedTasks"></app-center-task>

@@ -14,55 +14,47 @@ export class DataService {
 
   public constant = new Constant();
 
-  /**
-   * The constructor function is a special function that is called when a new instance of the class is
-   * created
-   * 
-   * @param {HttpClient} httpClient - This is the HttpClient that we imported from
-   * @angular/common/http.
-   */
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
   }
 
   /**
    * It returns an observable of type object
    * 
-   * @returns Observable<Object>
+   * @return Observable<Object>
    */
-  getCategories(): Observable<Object> {
+  public getCategories(): Observable<Object> {
     return this.httpClient.get(this.constant.BASEURL + "categories");
   }
 
   /**
    * This function takes a category object as a parameter and returns an observable of type any
    * 
-   * @param {Menu} category - Menu
+   * @param category - Menu
    * @returns Observable<any>
    */
-  postCategories(category: Menu): Observable<any> {
-    const body=JSON.stringify(category);
-    return this.httpClient.post<any>(this.constant.BASEURL + "category", body, {'headers':this.constant.HEADERS});
+  public postCategories(category: Menu): Observable<any> {
+    const body = JSON.stringify(category);
+    return this.httpClient.post<any>(this.constant.BASEURL + "category", body, { 'headers': this.constant.HEADERS });
   }
 
   /**
    * It returns an Observable of type Object
    * 
-   * @returns Observable<Object>
+   * @return Observable<Object>
    */
-  getTasks(): Observable<Object> {
+  public getTasks(): Observable<Object> {
     return this.httpClient.get(this.constant.BASEURL + "tasks");
   }
 
   /**
    * This function takes in a task object and returns an observable of type any
    * 
-   * @param {Task} task - Task - This is the task object that we are sending to the server.
-   * @returns Observable<any>
+   * @param task - This is the task object that we are sending to the server.
+   * @return Observable<any>
    */
-  postTasks(task: Task): Observable<any> {
-    const body=JSON.stringify(task);
-    console.log(task)
-    return this.httpClient.post<any>(this.constant.BASEURL + "task", body, {'headers':this.constant.HEADERS});
+  public postTasks(task: Task): Observable<any> {
+    const body = JSON.stringify(task);
+    return this.httpClient.post<any>(this.constant.BASEURL + "task", body, { 'headers': this.constant.HEADERS });
   }
 
   /**
@@ -71,8 +63,8 @@ export class DataService {
    * @param id - The id of the task to be retrieved
    * @return Observable<Object>
    */
-  getTaskById(id: number): Observable<Object> {
+  public getTaskById(id: number): Observable<Object> {
     return this.httpClient.get(this.constant.BASEURL + "task/" + id);
-  } 
+  }
 
 }

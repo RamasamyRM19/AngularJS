@@ -65,8 +65,9 @@
     <div class="section-name">Add file</div>
   </div>
 
-  <div class="section">
-    <textarea name="note" id="note" [(ngModel)]="note" class="note-input" placeholder="Add note" (keypress)="addNotes()" value={{selectedTask.note}}></textarea>
+  <div class="section note-section">
+    <textarea name="note" id="note" [(ngModel)]="note" class="note-input" placeholder="Add note"
+      (keydown.enter)="addNotes()" value={{selectedTask.note}}></textarea>
   </div>
 </div>
 

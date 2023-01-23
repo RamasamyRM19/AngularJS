@@ -19,13 +19,7 @@ export class CenterTaskComponent {
   public constant = new Constant();
   public filter:string = "";
 
-  /** 
-   * The constructor function is a default function that runs when the component is loaded.
-   * @param {TaskService} taskService - TaskService - This is the service we created earlier.
-   * @param {DataService} dataService - DataService - This is the name of the dependency we want to
-   * inject.
-   */
-  constructor(public taskService: TaskService, private dataService: DataService) { }
+  constructor(public taskService: TaskService) { }
 
   /**
    * The ngDoCheck() function is called whenever the component is checked for changes
@@ -44,9 +38,10 @@ export class CenterTaskComponent {
   /**
    * The function takes in an id, sets the selected task to the task with the id, and then sets the
    * right container view to the task details view
-   * @param {number} id - The id of the task that was clicked on.
+   * 
+   * @param id - The id of the task that was clicked on.
    */
-  getSelectedTask(id:number): void {
+  public getSelectedTask(id:number): void {
     this.taskService.setSelectedTasks(id);
     this.taskService.rightContainerView();
   }
@@ -54,18 +49,20 @@ export class CenterTaskComponent {
   /**
    * The function takes a task as an argument, and then calls the clickToImportant function in the
    * taskService, passing the task as an argument
-   * @param {Task} task - Task
+   * 
+   * @param task
    */
-  clickToImportant(task: Task) {
+  public clickToImportant(task: Task) {
     this.taskService.clickToImportant(task);
   }
 
   /**
    * The completedTask function takes a task as an argument and passes it to the completedTask function
    * in the taskService
-   * @param {Task} task - Task - This is the task that we are going to complete.
+   * 
+   * @param task
    */
-  completedTask(task: Task) {
+  public completedTask(task: Task) {
     this.taskService.completedTask(task);
   }
 }
