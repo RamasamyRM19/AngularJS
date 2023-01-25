@@ -47,7 +47,7 @@
     <app-center-task [taskList]="pendingTasks"></app-center-task>
 
     <div [ngClass]="completedTasks.length > 0 ? 'completed': 'completed-hide'" (click)="showAndHideCompletedTask()">
-      <i [ngClass]="hideCompletedTask ? 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
+      <i [ngClass]="hideCompletedTask ? showAssignedToMe()? 'hide' : 'fa-solid fa-angle-right' : 'fa-solid fa-angle-down'"></i>
       <div [ngClass]="showAssignedToMe()? 'hide' : 'hide'">Completed</div>
     </div>
     <div class="completed-task-hide" [class.completed-task-hide]=hideCompletedTask>
